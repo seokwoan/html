@@ -9,11 +9,6 @@
 <body>
 
   <table border="1"><!-- border="1"은 테이블의 테두리 선 굵기 설정. 단위는 픽셀, table에 입력시 하위태그 th,td에 상속-->
-    <thead>
-      <tr>
-        <th></th><!--thead에서는 td가 아닌 th로 칸생성-->
-      </tr>
-    </thead>
       <tr height="50"><!-- tr : table row-->
         <td width="100" align="center" colspan="2">1</td><!-- td : table date, 칸에 너비 부여시 다른 줄의 첫번째칸에도 전부 부여, 높이 부여시 같은 줄에 영향(tr에 부여해도됨)-->
         <!-- colspan -> td를 합쳐줌, rowspan -> tr을 합쳐줌-->
@@ -78,7 +73,7 @@
   <table border="1">
     <thead>
       <tr>
-        <th></th>
+        <th></th><!--thead에서는 td가 아닌 th로 칸생성-->
         <th width="100">번호</th>
         <th width="100">점수</th>
         <th width="100">이름</th>
