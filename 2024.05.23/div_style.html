@@ -18,17 +18,97 @@
       width: 50px;
       height: 50px;
       background-color: pink;
-      margin-top: 10px;
 
     }
+    
+    #box3{
+      width: 800px; /*800px(너비) = 패딩 + 테두리 굵기 + 콘텐츠(파랑색영역)*/
+      box-sizing: border-box; /*box-sizing: border-box; -> 해당 태크의 너비(= 패딩 + 테두리 + 콘텐츠) 고정*/
+      padding-left: 40px;
+      margin-top: 40px;      
+    } 
   
+    /* #span1, #span2{
+      display: inline-block;
+    } */
+
+    /* #box4{
+      width: 190px;
+      box-sizing: border-box;
+      padding-left: 40px;
+    }
+
+    #span1{
+      width: 80px;
+      margin-left: 40px; -> span1과 span2가 같이 이동됨
+    }
+
+    /* #span2{
+      width: 100px; text-align: right;
+    } */ 
+
+    #content{
+      width: 700px;
+      background: skyblue;
+      padding: 40px; /* padiind: pt pt pt pt -> top부터 시계방향으로 적용, 2개의 데이터를 넣으면 앞 -> 위아래 / 뒤 -> 좌우적용, 다 같은 크기면 한번만 입력해도 적용 */ 
+      box-sizing: border-box;
+    }
+
+    #item1{
+      background: orange;
+      height: 100px;
+      margin-bottom: 20px; /*item1과 item2는 동급 태그이므로 마진으로 간격생성*/
+    }
+
+    #item2{
+      background: lightgreen;
+      height: 100px;
+    }
+
+    #newone{
+      width: 500px;
+      background: skyblue;
+      box-sizing: border-box;
+    }
+
+    #smallbox1, #smallbox2{
+      height: 100px;
+      display: inline-block;
+      width: 100px;
+    }
+
+    #smallbox1{
+      background: lightgreen;
+    }
+
+    #smallbox2{
+      background: purple;
+    }
+
   </style>
 </head>
 <body>
 
   <div id="box1"></div><!-- 블록태그는 크기를 지정해도 영역을 가지고있다.-->
   
-  <div id="box2"></div>
+  <div id="box3">
+    <div id="box2"></div>
+  </div><!-- div안에 div를 넣어서 원하는 div만 움직이게 만들어줌-->
+  
+  <!-- <div id="box4">
+    <span id="span1">span1</span>
+    <span id="span2">span2</span>  
+  </div> -->
 
+  <div id="content">
+
+    <div id="item1"></div>
+    
+    <div id="item2"></div>
+
+  </div><br><br><br><br><br>
+
+
+  <div id="newone"><span id="smallbox1"></span><span id="smallbox2"></span></div>
 </body>
 </html>

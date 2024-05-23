@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>div 스타일2</title>
+  
+  <style>
+
+    #outbox1{
+      background: blue;
+      width: 600px;
+      box-sizing: border-box;
+      padding: 20px 60px 40px 30px;
+      margin-bottom: 10px;
+    }
+
+    #topbox{
+      height: 100px;
+      background: red;
+      margin-bottom: 20px;
+    }
+
+    #middlebox{
+      height: 100px;
+      background: green;
+      margin-bottom: 40px;
+    }
+
+    #bottombox{
+      margin: 0px;
+      height: 100px;
+    }
+  
+    #bottom_left, #bottom_right{
+      display: inline-block;
+    }
+
+
+    #bottom_left{
+      background: yellow;
+      height: 100px;
+      width: 200px;
+      margin-right: 10px;
+    }
+
+    #bottom_right{
+      background: gray;
+      height: 100px;
+      width: 300px;
+    }
+
+    #outbox2{
+      width: 600px;
+      height: 100px;
+      background: orange;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="outbox1">
+    <div id="topbox"></div>
+    <div id="middlebox"></div>
+    <div id="bottombox"><span id="bottom_left"></span><span id="bottom_right"></span></div>
+  </div>
+
+  <div id="outbox2"></div>
+
+</body>
+</html>
