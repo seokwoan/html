@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position1</title>
+
+  <style type="text/css">
+
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+    /*페이지 구성할때 계산을 위해 태그의 여백(마진,패딩)을 없애줌, 박스사이즈 고정함 "*"은 모든 태그를 선택*/
+
+    #box1{
+      width: 300px;
+      height: 300px;
+      background-color: blue;
+    }
+
+    #box2{
+      width: 300px;
+      height: 300px;
+      background-color: yellow;
+      /* margin-left: 300px; */
+      position: relative;/* absolute */
+      /*relative는 상대적(상위태그 기준이 아니라 태그의 위치 기준) absolute는 절대적(상위태그 기준 시작점 각 상위태그의 방향)*/
+      /*position은 상위 태그에 영향을 받아 relative와 absolute의 효과적인 속성이다름 */
+      bottom: 150px;
+      left: 150px;
+      /* margin-top: -300px; 이거 왜 됨?*/
+    }
+
+  </style>
+
+</head>
+
+<body>
+  
+  <div id="box1"></div>
+  <div id="box2"></div>
+
+</body>
+</html>

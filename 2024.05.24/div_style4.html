@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>div_style4</title>
+
+  <style type="text/css">
+
+    #wrap{
+      width: 800px;
+      margin: 0 auto;
+      background: #1AC3FF;
+      padding: 80px 30px 20px 30px;
+    }
+    
+    #box1{
+      width: 100%;/* 상위태그 너비 - padding 값을 100% 가짐 */
+    }
+
+    .card{
+      display: inline-block;
+      width: 32%;/*상위태그의 너비 - padding값을 32%가짐 */
+      height: 350px;
+    }
+
+    /*#id>.class -> id태그 하위 class태그를 지정*/
+    #box1>.card:nth-child(1){/*nth-child -> 하위 같은 class 중 n번째 선택*/
+      background-color:#33CC33;
+    }
+ 
+
+    #box1>.card:nth-child(2){
+      background-color: #CC33CC;
+      margin-left: 1.25%;
+      margin-right: 1.25%;
+    }
+
+    #box1>.card:nth-child(3){
+      background-color: #330099;
+    }
+
+    #box2{
+      width: calc(98.5% + 11px);
+      background-color: #FFABC1;
+      padding: 15px 40px;
+      box-sizing: border-box;
+    }
+
+    .text{
+      display: inline-block;
+      width: 100px;
+      height: 50px;      
+    }
+
+    #box2>.text:first-child{/*첫번째 자식은 first, 마지막 자식은 last*/
+      background-color: #00FBBC;
+      margin-right: 30px;
+    }
+
+    #box2>.text:last-child{
+      background-color: #0000FF;
+    }
+  </style>
+
+</head>
+
+<body>
+  
+  <div id="wrap">
+
+    <div id="box1">
+      <span class="card"></span>
+      <span class="card"></span>
+      <span class="card"></span>
+    </div>  
+
+    <div id="box2">
+      <span class="text"></span>
+      <span class="text"></span>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
