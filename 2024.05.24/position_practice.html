@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position_practice</title>
+
+  <style type="text/css">
+    
+    *{margin: 0; padding: 0; box-sizing:border-box;}
+
+    .box{
+      /* width: 300px; */
+      height: 300px;
+    }
+
+    #box1{
+      background-color: #00000F;
+    }
+
+    #box2{
+      background-color: #30FBCD;
+      position:relative;
+    }
+
+    .box2a{
+      width: 70px;
+      height: 70px;
+    }
+
+    #box2_1{
+      background-color: #d4a509;
+      position:absolute;
+    }
+
+    #box2_2{
+      background-color: #0055BB;
+      position:relative;
+      top: 30px;
+      left: 40px;
+    }
+
+    #box3{
+      position:absolute;
+    }
+
+    .test{
+      background-color: #0055BB;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div id="box1" class="box"></div>
+  <div id="box2" class="box">
+    <div id="box2_1" class="box2a"></div>
+    <div id="box2_2" class="box2a"></div>
+   </div> 
+  
+   <div id="box3">
+    <div class="box test"></div>
+    <div class="box test"></div>
+   </div>
+</body>
+</html>
