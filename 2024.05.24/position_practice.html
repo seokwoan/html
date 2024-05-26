@@ -10,22 +10,42 @@
     *{margin: 0; padding: 0; box-sizing:border-box;}
 
     .box{
-      /* width: 300px; */
-      height: 300px;
+      width: 300px;
+      position: absolute;
+      margin-top: 0;
     }
 
     #box1{
-      background-color: #00000F;
+      height: 800px;
+      z-index: 1;
     }
 
     #box2{
       background-color: #30FBCD;
-      position:relative;
+      height: 1500px;
     }
 
     .box2a{
       width: 70px;
       height: 70px;
+    }
+
+    #box1_1{
+      background-color: blue;
+      width: 50px;
+      height:50px;
+      position: sticky;
+      top: 30px;
+      left:20px;
+    }
+
+    #box2_3{
+      background-color: yellow;
+      width: 70px;
+      height: 70px;
+      position: sticky;
+      top:50px;
+      left: 20px;
     }
 
     #box2_1{
@@ -41,26 +61,101 @@
     }
 
     #box3{
+      margin: 0 auto;
+      position:relative;
+      width: 800px;
+      height: 1000px;
+      background-color: #000abc;
+    }
+
+    .box3a{
+      width: 200px;
+      height: 200px;
+      font-size: 50px;
+      text-align: center;
+      padding: 50px 0 0 0;
+    }
+
+    #box3>.box3a:first-child{
+      background-color:red;
+      position: relative;
+      top: 200px;
+      left: 200px;
+    }
+
+    #box3>.box3a:nth-child(2){
+      background-color: yellow;
       position:absolute;
+      top: 400px;
+      right: 200px;
+    }
+
+    #box3>.box3a:nth-child(3){
+      background-color: orange;
+      position: absolute;
+      top: 200px;
+      left: 400px;
+    }
+
+    #box3>.box3a:nth-child(4){
+      background-color: gray;
+      z-index: 2;
+      /* position: fixed; */
+      top: 100px;
+      left: 100px;
+    }
+
+    #box3>.box3a:last-child{
+      background-color: aquamarine;
+    }
+
+    #box3_5{
+      position:sticky;
+      top: 20px;
+      left: 100px;
     }
 
     .test{
       background-color: #0055BB;
     }
+
+    #space{
+      height:5000px;
+    
+    /* #box4{
+      background-color: rgb(61, 194, 28);
+      position: absolute;
+      top: 200px;
+      left: 100px;
+      z-index: 1; */
+    }
+
   </style>
 
 </head>
 <body>
 
-  <div id="box1" class="box"></div>
+<!--   <div id="box4" class="box3a">6</div> -->
+
+  <div id="box1" class="box">
+    <div id="box1_1" class="box1a"></div>
+  </div>
+  
   <div id="box2" class="box">
-    <div id="box2_1" class="box2a"></div>
-    <div id="box2_2" class="box2a"></div>
+    <div id="box2_3" class="box1a"></div>
+<!--     <div id="box2_1" class="box2a"></div>
+    <div id="box2_2" class="box2a"></div> -->
    </div> 
   
    <div id="box3">
-    <div class="box test"></div>
-    <div class="box test"></div>
+    <div id="box3_1" class="box3a">1</div>
+    <div id="box3_2" class="box3a">2</div>
+    <div id="box3_3" class="box3a">3</div>
+    <div id="box3_4" class="box3a">4</div>
+    <div id="box3_5" class="box3a">5</div>
    </div>
+
+   <div id="space"></div>
+
 </body>
 </html>
