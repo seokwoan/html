@@ -1,0 +1,97 @@
+*{
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+ul{
+  list-style-type: none;
+}
+
+#wrap{
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#header{
+  width: 100%;
+  margin-bottom: 20px; /* #main 태그와의 간격 */
+  position: relative;
+}
+
+#top{
+  background-color: #3b414d;
+  color: #eeeeee;
+  width: 100%;
+}
+
+.top_text_box{
+  text-align: right;
+  padding-right: 50px;
+}
+
+/* "#top .top_text" 는 id가 top인 태그 아래 .top_text클래스를 지정 
+다른 id를 가진 태그의 하위클래스는 적용되지 않음*/
+#top .top_text{
+  display: inline-block;
+  padding: 8px 15px;
+}
+
+#top .top_text:nth-child(2){
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+#nav{
+  width: 100%;
+  position: relative;
+  height: 106px;
+}
+
+#logo_box{
+  padding: 8px 0;
+  height: 106px;
+  float: left;
+  /* float은 뜨다의 뜻을 가지고 있고 html에서도 상위 태그위 떠있는 형태로 표시 되기 
+  때문에 상위태그에 포함되지 않는다.
+  정렬을 위한 속성이지만 상위태그에 미포함되기 때문에 상위태그에
+  높이, 여백같은 값을 별도로 지정해줘서 사용해야한다.
+  "float" 태그 기준 정렬 태그의 순서에 따라 정렬 같은 태그끼리만 정렬 right는 
+  첫번째 태그가 가장 오른쪽 하위 태그에 의해 상위 태그의 크기에 영향을 주지 않음
+  상위 태그에 padding을 설정하면 하위태그 float을 가져도 영향을 받음 */
+}
+
+/* 하위 태그를 지정할때 ">"는 바로 아래 태그만 적용 " "는 하위 모든 태그 지정*/
+#logo_box img{
+  width: 90px;
+}
+
+#menu_box{
+  position: relative;
+}
+
+#menu_list{
+  /* padding: 40px 0; */
+  /* height: 106px; */
+  position: absolute;
+  right: 0;
+}
+
+#menu_list .menu{
+  float: left;
+  position: relative;
+  /*absolute는 상위 태그 기준이라 li태그 전체가 한 곳에 모임 
+  absolute는 class가 아닌 태그 각각 지정해야 함*/
+  top: 30px;
+  font-size; 25px;
+  /* 기본 폰트 크기는 16px */
+  padding: 0 15px;
+}
+
+#menu_list .menu:hover{
+  cursor: pointer;
+  color: brown;
+  font-weight: 800;
+  text-shadow: 3px 3px 2px #444;
+  /* x축 y축 shadow크기 shadow색*/
+}
+

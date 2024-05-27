@@ -7,12 +7,7 @@
   <!-- link는 외부파일을 가지고 올떄 사용, rel은 가지고 올 파일의 형식, href는 파일을 가지고 올 주소 "./는 현재파일"-->
   <title>동물보호센터</title>
 
-  <style type="text/css">
-
-    *{box-sizing:border-box;}
-
-
-  </style>
+  <link rel="stylesheet" href="./static/css/main.css">
 
 </head>
 
@@ -26,25 +21,24 @@
           <span class="top_text">고객센터</span>
           <span class="top_text">동물보호관리시스템</span>
         </div>
-      </div> 
+      </div>   
+      <div id="nav">
+        <div id="logo_box">
+          <img src="./logo90.jpg" alt="동물보호센터로고이미지"><!-- img태그는 이미지 삽입, src 경로, alt는 이미지 부가설명 검색시 alt입력된 값이 검색됨 -->
+        </div>
+        <div id="menu_box">
+          <ul id="menu_list">
+            <li class="menu">센터 소개</li>
+            <li class="menu">동물보호 정보</li>
+            <li class="menu">입양</li>
+            <li class="menu">참여소통</li>
+            <li class="menu">반려동물공원</li>
+          </ul>
+        </div>
+      </div>
     </div>  
-    <div id="nav">
-      <div id="logo_box">
-        <img src="./logo.jpeg" alt="동물보호센터로고이미지">
-        <!-- img태그는 이미지 삽입, src 경로, alt는 이미지 부가설명 검색시 alt입력된 값이 검색됨 -->
-      </div>
-      <div id="menu_box">
-        <ul id="menu_list">
-          <li class="menu">센터 소개</li>
-          <li class="menu">동물보호 정보</li>
-          <li class="menu">입양</li>
-          <li class="menu">참여소통</li>
-          <li class="menu">반려동물공원</li>
-        </ul>
-      </div>
-    </div>
 
-    <div id="main"></div>
+    <div id="main">123456</div>
 
     <div id="footer"></div>
 
