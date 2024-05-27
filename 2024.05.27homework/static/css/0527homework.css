@@ -1,0 +1,96 @@
+*{margin: 0; padding: 0; box-sizing:border-box;}
+
+#wrap{
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#top_title{
+  width: 150px;
+  font-size: 30px;
+  padding: 5px 0;
+  font-weight: 900;
+}
+
+#top_image{
+  background: url(../image/earth.jpeg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+}
+
+#top_foot{
+  width: 210px;
+  height: 30px;
+  padding: 5px;
+}
+
+#top_foot .top_button{
+  width: 30%;
+  height: 20px;
+  float: left;
+  border-radius: 60px;
+}
+
+#top_foot .top_button:nth-child(1){
+  background-color: blue;
+}
+
+#top_foot .top_button:nth-child(2){
+  background-color: rgb(100, 200, 246);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#top_foot .top_button:nth-child(3){
+  background-color: rgb(79, 207, 246);
+}
+
+#middle_box p{
+  padding: 5px 0;
+  font-size: 20px;
+}
+
+#bottom_box{
+  position: relative;
+  width: 100%;
+  padding: 20px 50px;
+}
+
+#bottom_box .bottom_picture{
+  width: 270px;
+  height: 300px;
+  position: absolute;
+}
+
+#bottom_box .bottom_picture:nth-child(1){
+  position: relative;
+  background: url(../image/forest.jpg) no-repeat center;
+}
+
+#bottom_box .bottom_picture:nth-child(2){
+  left: 365px;
+  top: 20px;
+  background: url(../image/mountain.jpg) no-repeat center;
+}
+
+#bottom_box .bottom_picture:nth-child(3){
+  right: 50px;
+  top: 20px;
+  background: url(../image/aurora.jpg) no-repeat center;
+}
+
+#fix_box{
+  position: fixed;
+  top: 250px;
+  left: 70px;
+  background-color: #23a9f7;
+  border-radius: 10px;
+}
+
+#fix_box .fix_menu{
+  padding: 8px;
+  color: white;
+  font-weight: 550;
+}

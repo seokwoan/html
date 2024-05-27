@@ -255,3 +255,12 @@ ul{
 .foot_menu li:nth-child(3){
   border-right: 2px solid rgb(249, 249, 151);
 }
+
+.foot_text{
+  color: #bbb;
+  font-weight: 800;
+}
+
+.foot_text p{
+  line-height: 30px;
+}
