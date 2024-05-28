@@ -6,11 +6,16 @@
   position: relative;
 }
 
-#top_title{
+/* "div" 태그 적용 설정 */
+/* #top_title{
   width: 150px;
   font-size: 30px;
   padding: 5px 0;
   font-weight: 900;
+} */
+
+#title_h{
+  padding: 15px;
 }
 
 #top_image{
@@ -49,6 +54,7 @@
 
 #middle_box p{
   padding: 5px 0;
+  /* "p" 태그는 margin을 기본값으로 가짐 */
   font-size: 20px;
 }
 
@@ -89,8 +95,19 @@
   border-radius: 10px;
 }
 
-#fix_box .fix_menu{
+/* "div" 태그 적용 설정 */
+/* #fix_box .fix_menu{
   padding: 8px;
   color: white;
   font-weight: 550;
+} */
+
+#fix_ul{
+  list-style-type: none;
+  color: white;
+}
+
+#fix_ul .fix_li{
+  line-height: 25px;
+  padding: 3px;
 }
