@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex</title>
+
+    <style type="text/css">
+
+      #wrap{
+        height: 500px;
+        border: 2px solid #000;
+        display: flex;
+        justify-content: start;
+        /* column-gap: 50px; 가로 간격
+        "row-gap: ;" 세로 간격 여러 줄 일때 사용
+        "gap: ;" column, row 전부 적용 */ 
+        align-items: center;
+        justify-content: space-between;
+        /* "space-between" 첫item과 마지막item을 컨테이너 양 끝에 두고 
+        자식간 같은 간격으로 띄워줌
+        "space-around" 첫item과 마지막item을 컨테이노 양 끝에서 살짝 
+        띄우고 자식간 같은 간격으로 띄워줌
+        "space-evenly" item들의 간격이 모두 같음
+        (띄우는 간격은 컨테이너의 넓이에 따라 다름) */
+        /* flex-wrap:wrap-reverse; */
+        /* flex에서 여러줄을 표현하려면 "flex-wrap: wrap;" */
+        flex-direction: column;
+        /* flex의 축의 방향을 정해줌 row -> 행, column -> 열 
+        기본값은 row > 주축이 x축 , column으로 설정하면 주축이 y축 */
+      }
+
+      /* .item{ */
+        /* width: 100px; */
+        /* flex-basis: 100px; */
+        /* "flex-basis: 100px;" 기본 너비를 100px로 설정하고 item의 
+        content가 100px을 넘으면 item의 너비를 늘려준다 */
+        /* height: 100px; */
+        /* flex-grow: 1; */
+        /*flex-grow: x;" container 크기내에서 item의 크기를 키워줌 
+          item에 x/n의 값을 갖게해줌(n은 x의 총합) 비율로 계산됨*/  
+      /* } */
+
+      /* .red{ */
+        /* align-self: end; */
+        /* "align-self" item각 개인의 교차축이동 
+        item은 flex에서 교차축만 이동가능 */
+        /* flex-grow: 4; */
+        /* order: 3; */
+        /* "order" 값을 가진 item을 정렬 
+        값이 없는 item이 앞(왼쪽)에 위치 
+        값이 낮은 item이 앞(왼쪽)에 위치 */
+      /* } */
+
+      .item{
+        /* width: 30%; */
+        height: 30px;
+      }
+
+    </style>
+
+</head>
+
+<body>
+  
+  <div id="wrap">
+    <div class="item yellow" style="background: yellow;">a</div>
+    <div class="item red" style="background: red;">b</div>
+    <div class="item blue" style="background: blue;">c</div>
+    <div class="item green" style="background: green;">d</div>
+    <div class="item violet" style="background: violet;">e</div>
+  </div>
+
+</body>
+
+</html>
+
+<!-- "flex" 브라우저 화면에서 요소(태그, 텍스트, 이미지)들의 배치를 위해 사용하는 기능
+부모 태그와 자식태그의 명칭
+display:flex; 가 적용된 태그는 부모태그이다.
+부모태그를 flex 컨테이너 라고 한다.
+자식태그를 flex item 이라고 한다.
+
+"flex"로 적용할수 있는 속성(정렬, 간격, 배치 등등)은 컨테이너에 적용하는
+속성과 아이템에 적용하는 속성으로 나누어져 있다.
+
+컨테이너(부모태그)에 적용하는 속성
+  display:flex; -> 자식태그를 부모너비 안에 한줄로 정렬
+
+  주축 : justyfy-content
+  부모태그의 왼쪽(start)에서 시작 중앙(center)를 지나 오른쪽(end)로 이동
+  justyfy-content: start; (컨테이너의 왼쪽에 배치)
+                   center; (컨테이너의 수평 가운데에 배치)
+                   end; (건테이너의 오른쪽에 배치) 
+  flex의 자식태그는 "display", "position"설정을 하지 않으면 
+  margin, padding, width, height를 가짐
+
+  부모태그는 전체적으로 정렬 각 자식태그 개인의 정렬은 자식태그에서 가능
+  
+  교차축 : align-items
+  교차축은 "flex"설정하면 기본적으로 컨테이너의 위쪽에서 아래방향으로 이동
+  align-items: start; (컨테이너 위쪽에 배치)
+               center; (컨테이너의 수직가운데 배치)
+               end; (컨테이너의 아래에 배치)
+               stretch; (item의 높이(교차축)를 컨테이너 높이만큼 줌 아이템에 높이가 없어야 적용)
+
+  flex-wrap -> 여러줄 배치 여부
+    nowrap - 기본값(한줄배치)
+    wrap - 여러줄 배치
+    wrap-reverse - 역방향으로 여러줄 배치 (첫번째 줄의 item이 맨 끝에서 배치해서 역순)
+
+  gap : 간격 (행,열)
+    column : 열 , row : 행  
+
+자식태그(item)
+  align-self: start; (지정한 item이 컨테이너 위쪽에 배치)
+              center; (지정한 item이 컨테이너 수직가운데 배치)
+              end; (지정한 item)이 컨테이너 아래에 배치
+  flex-grow: x;" container 크기내에서 item의 크기를 키워줌 
+
+  item에 x/n의 값을 갖게해줌(n은 x의 총합) 비율로 계산됨
+   - flex-grow: 1; 모든 item은 1:1:1.. 의 비율이 된다 4개면 1/4의 크기
+    flex-grow: 1;을 item전체에 주고 특정 item에 flex-grow: 3;을 주면
+    특정 item은 3/6의 크기를 갖고 나머지는 1/6의 크기를 갖는다.
+
+  order: 1; 배치순서이다. 값이 작을수록 앞쪽에 배치된다.
+   order속성이 없는 item은 기본 순서대로 배치되고 가장 앞쪽에 배치된다.  
+ -->

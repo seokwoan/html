@@ -13,7 +13,7 @@
   width: 100%;
   padding: 20px;
   position: relative;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #ccc;
 }
 
 #header_left{
@@ -70,6 +70,7 @@ width: 1px; */
   border: 1px solid #aaa;
   padding: 3px 7px;
   font-size: 12px;
+  color: #ccc;
 }
 
 
@@ -77,4 +78,85 @@ width: 1px; */
  width: 1400px;
  margin: 0 auto;
  padding: 50px 0;
+ border-bottom: 1px solid #ccc;
+}
+
+#main_box{
+  width: 100%;
+  position: relative;
+}
+
+#main_box .translation{
+  width: 685px;
+  position: relative;
+  top: 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden; /* 상위태그의 지정된 크기보다 큰 하위태그의 content가 숨겨짐*/
+}
+
+#main_box .translation_right{
+  position: absolute;
+  right: 0;
+}
+
+#main_box .translation_top{
+  padding: 20px 30px;
+  font-weight: 700;
+}
+
+#main_box .translation_middle{
+  padding: 40px 17px;
+  height: 226px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+#main_box .translation_middle .guide{
+  font-size: 29px;
+  color: #777;
+  font-weight: 600px;
+}
+
+#main_box .translation_middle .count{
+  font-size: 20px;
+  color: #aaa;
+  position: absolute;
+  right: 17px;
+  bottom: 40px;
+}
+
+#main_box .translation_bottom{
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+/* 우선순위 : 상위 id > 하위 class순으로 적용이 지향됨
+부모에서 내려오는 값이 우선순위를 가져
+"#id .class"순으로 작성하면 우선순위애 대한 교려가 적음 
+id는 문서에 하나만 존재해서 class의 위치를 찾기에도 용이*/
+#main_box .translation_bottom .function{
+  display: flex;
+  width: 75%;
+}
+
+#main_box .translation_bottom .function span{
+  height: 70px;
+  width: 70px;
+  border-right: 1px solid #ccc;
+}
+
+#main_box .translation_bottom .translation_bt{
+  width: 25%;
+}
+
+#main_box .translation_bottom .translation_bt button{
+  width: 100%;
+  height: 70px;
+  border: 0;
+  font-size: 23px;
+  background: #21dc6d;
+  color: white;
 }
