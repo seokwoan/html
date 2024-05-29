@@ -1,0 +1,80 @@
+*{
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+#wrap{
+  width: 100%;
+  min-width: 800px;
+  /* min-width는 브라우저의 width가 800px보다 작아지지 않음 */
+  position: relative;
+}
+
+#header{
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  border-bottom: 1px solid #aaa;
+}
+
+#header_left{
+  position: relative;
+  width: 100%;
+}
+
+#header_left .logo{
+  /* width: 130px; */
+}
+
+#header_left .logo>img{
+  /* width: 130px */
+  height: 35px;
+}
+
+#header_left .menu{
+  position: absolute;
+  top: 0;
+  left: 150px;
+  line-height: 35px;
+}
+
+#header_left .menu .menu_text:nth-child(2){
+  margin:0 10px;
+  position: relative;
+}
+
+/* "::"는 가상선택자를 만듬
+내용표시를 위해 "content"를 사용 
+after는 태그의 뒤, before는 태그의 앞 */
+/* 파파고는 content가 아닌 박스를 만들어 사용함
+background: #e5e5e5;
+content: "";
+height: 15px;
+left: -21px;
+position: absolute;
+top: 29px;
+width: 1px; */
+#header_left .menu .menu_text:nth-child(2)::after{
+  content:"|";
+  position: absolute;
+  right: -10px;
+  bottom: -5px;
+}
+
+#header_right{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+#header_right>span{
+  border: 1px solid #aaa;
+  padding: 3px 7px;
+  font-size: 12px;
+}
+
+
+#main{
+ width: 1400px;
+ margin: 0 auto;
+ padding: 50px 0;
+}
