@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0530homework</title>
+
+  <style type="text/css">
+
+    #flex_box{
+      margin: 0 auto;
+      width: 1000px;
+      height: 1000px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 20px;
+      border: 1px solid #eee;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .img_box{
+      overflow: hidden;
+      border: 0;
+      border-radius: 7px;
+      position: relative;
+    }
+
+    .small_box{
+      width: 300px;
+      height: 200px;
+    }
+
+    .middle_box{
+      width: 300px;
+      height: 300px;
+    }
+
+    .big_box{
+      width: 300px;
+      height: 400px;
+    }
+
+    .number_box{
+      padding: 5px;
+      font-size: 25px;
+      font-weight: 800;
+      position: absolute;
+      right: 7px;
+      bottom: 7px;
+      color: white;
+      z-index: 1;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="flex_box">
+    <div class="small_box img_box">
+      <img src="https://loremflickr.com/300/200?random1" alt="">
+      <div class=number_box>1</div>
+     </div> 
+    <div class="middle_box img_box">
+      <img src="https://loremflickr.com/300/300?random2" alt="">
+      <div class=number_box>2</div>
+    </div>
+    <div class="big_box img_box">
+      <img src="https://loremflickr.com/300/400?random3" alt="">
+      <div class=number_box>3</div>
+    </div>
+    <div class="small_box img_box">
+      <img src="https://loremflickr.com/300/200?random4" alt="">
+      <div class=number_box>4</div>
+    </div>
+    <div class="big_box img_box">
+      <img src="https://loremflickr.com/300/400?random5" alt="">
+      <div class=number_box>5</div>
+    </div>
+    <div class="small_box img_box">
+      <img src="https://loremflickr.com/300/200?random6" alt="">
+      <div class=number_box>6</div>
+    </div>
+    <div class="big_box img_box">
+      <img src="https://loremflickr.com/300/400?random7" alt="">
+      <div class=number_box>7</div>
+    </div>
+    <div class="middle_box img_box">
+      <img src="https://loremflickr.com/300/300?random8" alt="">
+      <div class=number_box>8</div>
+    </div>
+  </div>
+
+</body>
+</html>
