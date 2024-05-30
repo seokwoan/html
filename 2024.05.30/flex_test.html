@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex_test</title>
+</head>
+
+<body>
+  
+  <style>
+    #cont1{
+      width: 100%;
+      margin: 0 auto;
+      max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      /* gap: 10px; */
+    }
+
+    #cont1>img{
+      box-sizing: border-box;
+      width: 25%;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      /* width: calc( (1200px - 30px) / 4); */
+    }
+
+  </style>
+
+  <h2> 여러줄 배치하기 </h2>
+  <div id="cont1">
+    <img src="https://loremflickr.com/300/400?random1">
+    <img src="https://loremflickr.com/300/400?random2">
+    <img src="https://loremflickr.com/300/400?random3">
+    <img src="https://loremflickr.com/300/400?random4">
+    <img src="https://loremflickr.com/300/400?random5">
+    <img src="https://loremflickr.com/300/400?random6">
+    <img src="https://loremflickr.com/300/400?random7">
+    <img src="https://loremflickr.com/300/400?random8">
+    <img src="https://loremflickr.com/300/400?random9">
+    <img src="https://loremflickr.com/300/400?random10">
+  </div>
+
+</body>
+
+</html>

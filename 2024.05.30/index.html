@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex</title>
+
+</head>
+
+<body>
+
+  <style type="text/css">
+    #container1{
+      display: flex;
+      gap: 20px;
+    }
+
+    .item1{
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    #container2{
+      display: flex;
+      width: 500px;
+    }
+
+    .item2{
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    #container3{
+      display: flex;
+      /* flex는 container바로 하위 item에만 적용 
+      부모태그 -> 자식태그 만 적용 손자태그에는 적용안됨 */
+      padding: 20px 0;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      width: 800px;    
+    }
+
+    .logo1>img{
+      /* "img" 태그는 inline요소임 
+      inline 요소는 텍스트 하단에 여백을 줌 img태그를 텍스트 취급해 
+      삽입한 이미지 하단에 여백이 나타남
+      display= block;을 주면 block요소로 변해 여백이 사라짐 */
+      width: 50px;
+      display: block;
+    }
+
+    #container3>ul{
+      margin: 0; padding: 0;
+      list-style-type: none;
+      flex-grow:1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+
+  </style>
+
+  <h2>메뉴 만들기</h2>
+
+  <div id="container1">
+    <div class="item1">쇼핑</div>
+    <div class="item1">증권</div>
+    <div class="item1">뉴스</div>
+    <div class="item1">웹툰</div>
+    <div class="item1">스포츠</div>
+<!-- "flex"로 span의 엔터 간격이 사라지는게 아니라 그 위에 덮어씌워 그림-->
+  </div>
+
+  <div id="container2">
+    <span class="item2">쇼핑</span>
+    <span class="item2">증권</span>
+    <span class="item2">뉴스</span>
+    <span class="item2">웹툰</span>
+    <span class="item2">스포츠</span>
+  </div>
+
+  <div id="container3">
+    <div class="logo1"><img src="https://loremflickr.com/200/200" alt="logo"></div>
+    <ul>
+      <li class="item3">게임</li>
+      <li class="item3">영화</li>
+      <li class="item3">웹툰</li>
+      <li class="item3">물놀이</li>
+      <li class="item3">바캉스</li>
+    </ul>
+  </div>
+
+  <style type="text/css">
+
+    #header1{
+      width: 800px;
+      display: flex;
+      margin: 0; padding: 0 15px;
+      box-sizing: border-box;
+      align-items: center;/*header에 높이를 주면 ul태그에 작성 */
+      justify-content: space-between;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 100px;
+    }
+
+    .menu>ul{
+      margin: 0; padding: 0;
+      list-style-type: none;
+      display: flex;
+      column-gap: 15px;
+    }
+
+    .item4{
+      font-size; 23px;
+      font-weight: 700;
+      padding: 15px;
+    }
+
+    .menu>ul>.item4:hover{
+      cursor: pointer;
+      background-color: green;
+      color: white;
+    }
+
+    .home{
+      background-color: green;
+      color: white;
+    }
+
+    .button{
+      padding: 12px 15px;
+      background: green;
+      color: white;
+      border-radius: 7px;
+      border-style: none;
+    }
+
+  </style>
+
+  <h2>메뉴 만들기 실습</h2>
+
+  <div id="header1">
+    <div class="menu">
+      <ul>
+        <li class="item4 home">홈</li>
+        <li class="item4">웹툰</li>
+        <li class="item4">베스트도전</li>
+        <li class="item4">도전만화</li>
+        <li class="item4">마이페이지</li>
+      </ul>
+    </div>
+    <div class="button_box">
+      <button class="button">CREATER'S</button>
+    </div>
+  </div>
+
+  <style type="text/css">
+    #header{
+      width: 1000px;
+      display: flex;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      height: 55px;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    #left{
+      display: flex;
+      /* align-items: center;
+      자식태그가 이동할 수 있는 공간이 있어야함 크기가 같으면 정렬안됨 */
+    }
+
+    #left .left_menu{
+      line-height: 55px;
+      /* line-height는 %가 아닌 고정값*/
+      padding: 0 15px;
+      font-weight: 800;
+    }
+
+    #left .left_menu:hover{
+      background-color: #00dc64;
+      color: white;
+    }
+
+    #right{
+      padding: 7px 0;
+    }
+
+    #right .creator_bt{
+      border: 0; border-radius: 5px;
+      background: #00dc64;
+      color: white;
+      height: 100%;
+      padding: 0 30px;
+      font-weight: 700;
+    }
+
+  </style>
+
+  <div id="header">
+
+    <div id="left">
+      <div class="left_menu">홈</div>
+      <div class="left_menu">웹툰</div>
+      <div class="left_menu">베스트도전</div>
+      <div class="left_menu">도전만화</div>
+      <div class="left_menu">마이페이지</div>
+    </div>
+
+    <div id="right">
+      <button class="creator_bt">CREATOR'S</button>
+    </div>
+  </div>
+
+</body> 
+
+</html>
