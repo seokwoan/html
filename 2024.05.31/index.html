@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script type="text/javascript">
+
+// 변수 - 데이터가 저장된, 저장할수 있는 메모리(ram) 공간    
+// num은 변수 (ram에 변수가 저장됨)-> num을 입력하면 10이 출력됨
+// 변수는 재사용을 위해 사용 > 변수 값을 변경하면 입력된 변수부분의 값이 전부 변경됨
+    num=10;
+    // "="은 대입연산자로 오른쪽 값을 왼쪽에 대입 같다는 의미가 아님
+    apple="나는 사과";
+    melon=23.45;
+    melon=100;
+    melon="나는 멜론";
+// 자바스크립트에서 document는 body를 의미 
+    /* 자바스크립트는 변수 앞에 데이터 타입을 지정하지 않고 입력해서
+    데이터 타입을 바꿔서 입력할 수 있음 저장된 데이터를 덮어씌움 
+    가장 마지막에 입력한 값이 변수값으로 저장됨 이전 데이터는 삭제 */
+    // melon의 경우 "나는 멜론" 값이 마지막으로 저장되어 출력됨
+    document.write(num);
+ // 10을 넣어주면 ram에 10을 변수로 저장함   
+    document.write(num);
+    document.write(num);
+    document.write(apple);
+    document.write(melon);
+    /* num(변수)를 넣어주면 10을 저장하는게 아닌 ram에 저장된 변수값을 가져옴 
+    변수 지정은 메모리의 소모를 줄여주고 코드의 가독성을 높여줌
+    변수의 이름은 데이터에 맞는 이름을 정해주는게 좋다
+    변수이름의 첫 글자는 문자로 시작 숫자불가
+    자바 스크립트에서 이미 사용중인단어(예약어)를 변수로 지정하면 작동이 안됨
+    오류가 있는 부분부터 작동이 안됨 */
+    document.write("나는 자바스크립트입니다.");
+
+    num=100;
+    document.write("<br>");
+    // 변수, 숫자를 제외한 값을 입력하려면 '',""를 입력해야함
+    // body태그에 작성되므로 html에서 태그로 작동
+    document.write( num * 5 );
+    //변수 이름으로 계산식 적용가능 변수에 저장된 데이터와 계산
+    document.write('<br>10000*13');
+    // '',"" 안의 값은 숫자로 취급되지 않고 문자열로 취급됨 연산불가
+
+    // 사각형의 너비는 45이고, 높이는 15일경우 넓이는 얼마인가?
+    width=45;
+    height=15;
+
+    document.write("<br>");
+    document.write("사각형의 너비는 ");
+    document.write(width);
+    document.write(" 높이는 " + height);
+    // +는 문자열과 변수를 합쳐줌
+    document.write("<br>");
+    document.write("넓이는 " + width*height);
+
+    // 국어 :89 , 영어 : 94 , 수학 : 78
+    // 총점 : 261점
+    kor=89;
+    eng=94;
+    mat=78;
+
+    document.write("<br>");
+    document.write("국어 : " + kor + " , 영어 : " + eng + " , 수학 : " + mat + "<br>" + "총점 : " + (kor + eng + mat) + "점");
+    // "total=kor+eng+mat;" 로 새로운 변수를 만들어 사용가능 
+
+    document.write("<hr>")
+
+    커피주문 = 3;
+    수박주스주문 = 4;
+    아메리카노 = 1500;
+    수박주스 = 2000;
+    커피값 = 커피주문*아메리카노;
+    수박주스값 = 수박주스주문*수박주스;
+    음료값 = 커피값+수박주스값;
+
+    document.write("커피 총 주문 금액 : " + 커피값 + "<br>" + "수박주스 총 주문 금액 : " + 수박주스값 + "<br>" + "음료 총 주문 금액 : " + 음료값);
+    
+    // 변수의 이해
+    redcup = 10;
+    bluecup = 20;
+    whitecup = 0;
+
+    whitecup = redcup;
+    redcup = bluecup;
+    bluecup = whitecup;
+
+    /* 데이터 입력 방법 
+    ㅔpropsdp데이터는 변수에 저장되어 변수를 만들어야함
+    변수를 사용하려면 데이터가 있어여함(null) 제외
+    숫자로 변환이
+
+    1. "prompt();" 
+    
+    */
+ 
+    kor = parseInt( prompt("국어점수") );
+    mat = parseInt( prompt("수학점수") );
+    eng = Number( prompt("영어점수") );
+    total = kor + mat + eng
+
+    document.write("<br> 국어 : " + kor + " 수학 : " + mat + "영어 : "  + eng);
+    document.write("<br> 총점 : " + total);
+
+    document.write("<hr>");
+    // 실습 3.
+    // 이름과 거주 도시명, 생년월일을 입력하여 출력하세요.
+
+    name = prompt("이름을 입력하세요");
+    city = prompt("거주 도시명을 입력하세요");
+    birth = prompt("생년월일을 입력하세요");
+
+    document.write("이름 : " + name + "<br>" + "거주 도시 : " + city + "<br>" + "생년월일 : " + birth);
+
+    /*
+      카멜케이스 - 첫글자는 소문자 시작, 두번째단어부터 대문자표기
+                  blueCup, myName, iAmSpiderMan
+                  일반 변수명, 함수명, 메서드 명 등등
+      
+      스네이크케이스 - 모든 단어를 소문자로 작성하고 단어 사이에 _를 놓는다
+                      blue_cup, my_name, i_am_spider_man
+                      데이터베이스 테이블명, 테이블의 컬럼명
+                      
+      파스칼케이스 - 모든 단어를 띄어쓰기 없이 대문자로 시작
+                    BlueCup, MyName, IAmSpiderMan
+                    클래스명, 인터페이스명
+                    
+      케밥케이스 - 모든 단어를 소문자로 작성하고 단어사이에 - 를 넣는다. 
+                  blue-cup, my-name, i-am-spider-man
+                  HTML태그의 ID, CLASS
+                  
+      헝가리언 표기법 - 이름에 목적이나 타입을 접두사로 기재
+                      변수명에 데이터 타입을 넣어줌 ( 변수명_타입)
+                      blueInt, blue_int, blue-int, BlueInt
+                      myNameString, my_name_string
+                      변수명
+
+      상수 명 - 모두 대문자 
+      (상수는 데이터를 저장하는 공간 변수와 다르게 값이 변하지 않음 )
+    */
+
+
+
+  </script>
+
+</head>
+
+<body>
+
+  
+</body>
+
+</html>
