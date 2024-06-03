@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript연산자</title>
+
+  <script>
+    /*
+    연산자 종류
+      산술 연산자 : "+" , "-" , "*" , "/" , "%"
+      대입 연산자 : "=" (오른쪽 값을 왼쪽에 저장)
+      증감 연산자 : "++" , "--" (1증가 , 1감소)
+      비교 연산자 : "<" , ">" , "<=" , ">=" , "==" , "===", "!="
+      논리 연산자 : "&&"(and), "\\"(or) , "!"" (not)
+      조건 연산자(삼항 연산자) : (비교식) ? 참 : 거짓;
+      접근 연산자 : "."
+
+    연산자 사용시 주의사항
+      연산자 우선순위를 생각하고 식을 만들어야 한다.  
+
+    */
+      num1 = 17;
+      num2 = 4;
+      console.log( num1 + num2 );
+      console.log( num1 - num2 );
+      console.log( num1 * num2 );
+      console.log( num1 / num2 );
+      console.log( num1 % num2 );
+      // "%"는 num1을 num2로 나눈 나머지값을 표시
+
+      // 증감연산자
+      add1 = 10;
+      add1++; // add1 = add1 + 1 ;
+      console.log( add1 );
+      down1 = 10;
+      down1--;
+      console.log( down1 );
+
+      add2 = 10;
+      console.log( add2++ );
+      console.log( add2 );
+      // 증감연산자가 변수 뒤에 있으면 우선순위가 출력보다 낮다
+      add3 = 10;
+      result = add3++;
+      /* result = add3 ;
+        add3 = add3 + 1 ;
+        대입연산자 > 증감연산자 대입연산자가 증감연산자보다 우선순위가 높다
+        result의 값은 대입 연산자 우선이라 10이 나오고
+        add3는 증감 연산자의 값이 더해져 11이 나옴
+      */ 
+      console.log( result );
+      console.log( add3 );
+
+      add4 = 10;
+      console.log( ++add4 );
+      /* 증감연산자가 변수 앞에 붙으면 우선순위가 높아진다. 
+      증감연산자의 위치에 따라 우선순위가 변함. 
+      앞 > 우선순위 up 산술연산자보다 높다
+      뒤 > 우선순위 down / 대입연산자보다 낮다
+      앞에 위치하면 산술연산자보다 우선순위가 높아진다                                          
+      */
+
+      /* 비교연산자
+          대소비교연산자 ">" , "<" , ">=" , "<="
+          등가비교연산자 "==" , "===" , "!="  
+      */
+
+      console.log( 10 > 5 );
+      console.log( 10 < 5 );
+      num3 = 15;
+      num4 = 23;
+      console.log( num3 > num4 );
+      console.log( num3 >= num4 );
+      console.log( num3 <= num4);
+
+      tall = parseFloat( /* prompt("당신의 키는?") */150);
+      console.log("true면 탑승가능, false면 탑승 불가능")
+      console.log( tall >= 150 );
+   
+      // 신입개발자의 초봉 평균은 3100이다.
+      // 당신의 현재 연봉이 평균이상인가?
+      // 연봉 입력하여 출력 
+      // document.write 로 출력
+      // true면 평균 이상이고 false면 평균 이하이다.
+
+      yearAver = 3100;
+      yearYou = Number( /* prompt("당신의 연봉은?") */3700 );
+      document.write("신입 개발자의 평균연봉은 3100만원이다.<br>")
+      document.write("true면 평균 이상이고, flase면 평균 미만이다.<br>")
+      document.write( yearYou >= yearAver );
+      document.write("<br><br>")
+
+      // 아메리카노 금액 : 2000원
+      // 인원 5명
+      // 내 계좌 잔액이 얼마인지 입력 받기 (prompt)
+      // 5명의 아메리카노를 구매 할 수 있는가? 없는가?
+      //documnet.write로 출력하세요
+      americano = 2000;
+      people = 5;
+      acount = Number( /* prompt("계좌의 잔액을 입력하세요.") */1000 );
+      document.write("아메리카노의 가격은 2000원, 인원은 5명 입니다.<br>")
+      document.write( americano*people <= acount);
+      document.write("<br>")
+
+      // 등가연산자 "==(동등연산자)" , "===(일치연산자)" , "!="
+      console.log( 10 === 10 );
+      console.log( 10 != 10 );
+
+      console.log( "10" == 10 );
+      // "==" 는 데이터 타입 상관없이 데이터 타입을 맞춰 비교
+      //생년월일을 입력히여 회원가입할때 입력한 생년월일과 비교를 한다면
+      // html에서 입력하는 모든 값은 문자열이다.
+      // ("991024" == 991024) 
+
+      console.log( "10" === 10) ; 
+      // "==="는 데이터의 값과 타입이 같아야 true 자세한 비교에 사용 
+
+      console.log( "이순신 " === "이순신");
+
+      name1 = "김유신";
+      name2 = "김유신   ";
+      console.log( name1.trim() === name2.trim() );
+      // 변수.trim() -> 문자열 양쪽의 끝의 공백 제거
+      // trimStart() -> 문자열 앞쪽 공백제거
+      // trimEnd() -> 문자열 뒤쪽 공백제거
+
+      word1 = "abcd";
+      word2 = "ABcd";
+      console.log("영어 대소문자가 다르다면 " + (word1 === word2) );
+      // 영어 비교는 대소문자도 일치해야함
+
+      console.log( word1.toLowerCase() === word2.toLowerCase() );
+      // 변수.toLowerCase() -> 모든 영어문자를 소문자로 변환
+      //     .toUpperCase() -> 모든 영어문자를 대문자로 변환  
+
+      word3 = " a b c d";
+      word4 = "A B c d ";
+      console.log( word3.trim().toLowerCase() === word4.trim().toLowerCase());
+
+      /* 조건연산자 - 조건식(비교연산자로 만들어진 식, 결과가 참 또는 거짓)을
+                     비교하여 결과가 참이냐 거짓이냐에 따라
+                     다음 실행할 코드를 설정할 수 있다. 
+                     하나의 코드만을 실행 할 수 있음
+                     간단한 조건을 표현할때 사용 */
+
+      age = 25;
+      (age >= 30) ? document.write("30살이 넘었다.") : document.write("떡국 더 먹고와라");                    
+
+      score = 58;
+      결과 = ( score >= 60 ) ? "합격" : "불합격";
+      // 조건의 실행값에 변수를 저장하는 형태의 값을 넣지 말것 "a=b"
+      document.write("<br><br>" + 결과);
+
+
+      //바이킹을 탑승하려면 키가 135이상이어야 한다.
+      tall = Number( /* prompt("당신의 키는?") */ 135);
+      탑승여부 = ( tall >= 135 ) ? "탑승가능" : "탑승불가능";
+      document.write( "<br> 탑승여부 : " + 탑승여부);
+
+      // 하루에 총 걸음수가 6000보를 넘으면 포인트 점수 10점을 받을 수 있다.
+      // 이 사람의 오늘 걸음수를 입력받아 현재 포인트가 몇점인지 출력하세요.
+      stepStand = 6000;
+      userPoint = 435; // 현재 포인트435점
+      step = Number( /* prompt("오늘 총 몇 걸음") */ 7000);
+
+      addPoint = ( step > stepStand ) ? 10 : 0;
+      userPoint = userPoint + addPoint;
+
+      document.write("<br>현재 포인트 : " + userPoint + "점");
+      
+      // 두 정수를 입력받아 두 정수중 큰수 출력
+      firstNum = Number( /* prompt("첫번째 숫자를 입력하세요.") */ 12);
+      secNum = Number( /* prompt("두번째 숫자를 입력하세요.") */ 13);
+
+      bigNum = ( firstNum > secNum ) ? firstNum : secNum;
+      document.write("<br><br>입력한 숫자중 더 큰 숫자는 " + bigNum + " 입니다.")
+      
+      // 두 정수를 입력받아 두 정수의 합이 21이라면 블랙잭, 아니라면 합을 출력
+      num1 = parseInt( /* prompt("첫번째 숫자를 입력하세요.") */11 );
+      num2 = parseInt( /* prompt("두번째 숫자를 입력하세요.") */10 );
+      sumNum = num1 + num2;
+      blackJack = ( sumNum === 21) ? "블랙잭" : sumNum;
+      document.write("<br>" + blackJack + "<br><br><br><br>");
+
+      num1 = Math.floor( Math.random()*45 )+1;
+      console.log( num1 );
+
+      card1 = Math.floor(Math.random() * 11 ) + 1 ;
+      card2 = Math.floor(Math.random() * 11 ) + 1 ;
+      card3 = 0;
+
+      card3 = (( card1 + card2 ) <= 14) ? Math.floor(Math.random() * 10 ) + 1 : 0;
+      document.write( "나의 카드 : " + card1 + " , " + card2 + ", " + card3 +"<br>");
+      document.write("합 : " +( card1 + card2 + card3 ) + "<br>");
+
+      // random 함수를 사용하여 (1~50) 중의 숫자 두개를 받으세요.
+      // 숫자 두개의 곱하기 값이 1200 이상이면 '큰수' 아니라면 '작은수'라고 출력하세요
+      numRan1 = Math.floor( Math.random() * 50 ) + 1
+      numRan2 = Math.floor( Math.random() * 50 ) + 1
+      numMulti = numRan1 * numRan2 ;
+      result = ( numMulti >= 1200 ) ? `큰수 ( ${numRan1} , ${numRan2} )`: `작은수 ( ${numRan1} , ${numRan2} )`;
+      // " ` ${} ` " 문자열에 변수값을 넣어 줄 수 있음 템플릿리터럴
+      document.write(numMulti + " , " + result);
+
+      // 과제 1.  
+      // 소주 1잔에 수명이 2분 단축된다.
+      // 어떤 사람이 20년 동안 소주를 마셨다. 
+      // 하루에 몇잔씩 마시는지 입력 받기(prompt)
+      // 이 사람의 수명은 총 몇분 단축 되었는가?
+      //                 총 몇시간 단축 되었는가?
+      //                 총 며칠 단축 되었는가?
+      // 모든 값은 정수만 출력 
+
+      // 과제 2.
+      // 두개의 육면 주사위를 던져서 같은 값이 나온다면 당첨, 아니라면 꽝 출력
+      
+
+
+
+  </script>  
+
+</head>
+
+<body>
+  
+</body>
+
+</html>

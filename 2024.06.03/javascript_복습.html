@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript복습</title>
+
+  <script>
+    //변수 - 단일 데이터가 저장된 메모리(ram)공간 여러 데이터 저장 불가
+    // 변수의 이름은 의미있게 카멜 표기법으로 작성하는게 일반적
+    // random , randomAccess , ,randomAccessMomory
+    // 변수명은 반드시 문자로 시작해야한다. 대부분 "_"까지 허용
+    // 변수명은 사스템(언어) 예약어로 사용하면 안된다. 이미 사용중인 언어
+    
+    // 자바 스크립트 출력
+    // 1. document.write(출력내용);
+    // document -> html문서 
+    // write ->HTML문서에서 BODY태그에 쓰기 
+    // HTML문서에서 BODY엘러먼트( BODY 객체 )-자바스크립트에서 태그표현
+    
+    // 자바스크립트 입력
+    // 사용자로 부터 입력되는 값
+    // 1. prompt(); -> 현재페이지에 내부 창을 만들어서 화면에 표시하는 방법
+    // prompt 입력한 값은 문자열이다.
+    /* 문자열이므로 숫자로 사용하려면 parseInt(), parseFlat(), Number()
+    같은 문자열 -> 숫자로 변환 해주는 함수를 사용해야한다. */
+    
+    // 주유소에서 휘발유를 넣고자 한다.
+    // 휘발유는 1636원이다. 
+    
+    refuelCar = Number(/*  prompt("주유 휘발유량 : ") */12 );
+    // prompt로 입력받은 문자열값을 Number 함수를 통해 숫자로 변환
+    // 숫자로 변환해서 refuelCar 변수에 저장
+    gasolineCost = 1636;
+    gasolinePrice = gasolineCost * refuelCar;
+    // 총 주유 금액은 리터당 휘발유금액 * 주유휘발유량
+    document.write("상품명 : 휘발유<br>");
+    document.write( "판매량 : " + refuelCar + "<br>");
+    document.write("단가 : " + gasolineCost + "<br>");
+    document.write("지불금액 : " + gasolinePrice + "<br><br>");
+
+    // 문제 1. 
+    // 삼각형의 넓이를 구하세요 ( 밑변 * 높이 / 2)
+    // 밑변과 높이를 prompt를 통해 입력받으세요.
+    tra_high = parseInt( /* prompt("삼각형의 높이를 입력하세요") */3 );
+    tra_base = parseInt( /* prompt("삼각형의 밑변의 길이를 입력하세요") */3 );
+    tra_area = Math.round( ( tra_high * tra_base  / 2 ) );
+    // Math.floor(숫자) -> 정수만 추출
+    // Math.round(숫자) -> 소수점 이하를 반올림
+    // 소수점이하 자리수 표현 "변수명.toFixed(1)" -> 변수를 소수점 첫자리까지 표현
+    // toFixed의 결과값은 문자열이다. 버림으로 결과값이 나옴
+    // parseFloat( 변수명.toFixed(1)); 으로 사용해야 숫자로 사용
+    document.write("삼각형의 높이 : " + tra_high + "<br>");
+    document.write("삼각형의 밑볕 : " + tra_base + "<br>");
+    document.write("삼각형의 넓이 : " + tra_area + "<br>")
+
+    document.write("<ul><li>1번리스트</li><li>2번리스트</li></ul>")
+
+
+  </script>
+
+</head>
+
+<body>
+  
+</body>
+
+</html>
