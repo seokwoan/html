@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript_if</title>
+
+  <script>
+
+    // 자바스크립트 조건문 - 조건에 따라 코드를 실행시키는 제어문이다.
+    // 조건문 - "if~ else" , " switch문 " 
+    // if문은 조건식이 참 이냐 거짓이냐에 따라 코드를 실행
+    // switch문은 선택문 입력한 값에 맞는 코드를 선택하여 실행
+    
+    // if문 기본 구조
+    // if(조건식) { "참" 일경우 실행할 내용 } -> 기본, 거짓일 경우 실행할 코드를 입력하지 않음
+
+    // if(조건식) { 참일경우 실행할 내용 }
+    //    else{ 거짓일경우 실행할 내용 } -> else를 이용하여 거짓일 경우 실행할 코드를 입력
+
+    // if(조건식){ 참 내용 }
+    //   else{ if(조건식){ 참 내용 } else{거짓내용}}
+
+    // if(조건식){ 참 }
+    //  else if(조건식){ 참 }
+    //  else { 거짓 }
+
+   // if문의 반복은 else에 중괄호를 써서 입력하지 않고 else에 바로 if를 사용가능 
+
+   /* if( 10 > 5 ) { // if뒤에만 조건식 사용가능 , 참일경우 중괄호 코드 실행
+    alert( "5 보다 크다"); // alert -> 창을 띄워 표시해줌
+    alert( "두번째 코드");
+    alert( "세번째 코드");
+   } */
+
+   addr = "대전광역시";
+
+   if ( addr == "대전광역시" ) {
+    document.write( "구를 선택하세요. " );
+    document.write( "대덕구, 동구, 중구, 서구, 유성구<hr>" ) ;
+   } 
+   else{ // 조건식이 거짓일경우에만 else 실행
+    document.write( "올바르지 않은 지역 선택입니다. " ) ;
+    document.write( "다시 선택하세요.<hr>" ) ;
+   }
+
+   // 바이킹 키가 140이상 탑승가능
+
+   tall = 140;
+   
+   if( tall >= 140 ) {
+    document.write( "바이킹 탑승 가능<br>" ) ;
+   }
+   else{
+    document.write( "바이킹 탑승 불가능<br>" ) ;
+   }
+   // if문 작성할때 참과 거짓에 실행할 코드가 하나라면 중괄호 생략가능
+   // 실행할 코드가 2개 이상이라면 반드시 중괄호로 묶어야 한다.
+
+
+   result = ""; //변수의 초기화
+   요금 = ""; // 변수의 초기화( 변수의 첫 설정 )
+   // 변수는 코드의 상단에 모두 초기화 생성하여 사용하는게 좋다.
+   if ( tall >= 140 ){
+      result = "탑승 가능";
+      요금 = 1200;
+   }
+   else{
+      result = "탑승 불가능";
+   }
+   document.write( result + " , " + 요금 ) ;  
+   // if문 밖에 없는 변수를 if문 안에서 만들어서 쓰면 안됨
+   // if문 위에 초기값을 가진 변수가 있어야함
+   // 전역변수 -> html문서에서 전부 사용가능
+   // 지역변수 -> 함수에서 만든 변수, 제어문(if, switch 등 중괄호 안쪽)
+   // if문 안에서 변수값이 변하고 그 변수를 if문 밖에서 출력할때
+   // if와 else에 같은 변수가 있어야 한다 ( 이름이 같은 변수 )
+
+   document.write( '<hr>' );
+   // 다른값으로 바뀌지 않는 고유값은 " ' " ( 작은따옴표 ) 사용
+   // 다른값으로 변경 가능한 값은 " " " ( 큰따옴표 ) 사용 
+
+   // 두 정수를 입력 받아서 두 정수중 작은수 출력
+   
+   num1 = Number( /* prompt( "첫번째 숫자를 입력하세요." ) */ 1);
+   num2 = Number( /* prompt( "두번째 숫자를 입력하세요." ) */ 1);
+
+   /* if( num1 > num2 ){
+    document.write( "두 수 중 작은 수는 " + num2 + "입니다." ) ;
+   }
+   else{
+    document.write( `두 수 중 작은 수는 ${num1} 입니다.` ) ;
+   } */
+
+   if ( num1 === num2 ){
+    document.write( "두 수는 같은 수 입니다.<br>" ) ;
+    document.write( `첫번째 수 : ${num1} , 두번째 수 ${num2} 입니다.` ) ;
+   }
+   else if( num1 > num2 ){
+    document.write( "두 수 중 작은 수는 " + num2 + "입니다.<br>") ;
+    document.write( `첫번째 수 : ${num1} , 두번째 수 ${num2} 입니다.` ) ;
+   }
+   else{
+    document.write( "두 수 중 작은 수는 " + num1 + "입니다.<br>" ) ;
+    document.write( `첫번째 수 : ${num1} , 두번째 수 ${num2} 입니다.` ) ;
+   }
+
+   document.write( '<hr>' ) ;
+
+   coin = Math.floor( Math.random() * 2 ) + 1 ;
+   user = Number( 1/* prompt( "1. 앞면 2. 뒷면  동전 앞면뒷면 선택하세요." ) */ ) ;
+
+   if( coin === user ){
+    document.write( " 정답 ! <hr>" ) ;
+   }
+   else{
+    document.write( " 땡!! <hr>" );
+   }
+
+   // 주사위 1개를 던진다. 주사위의 값이 4 또는 6이 나오면 10000원을 받을수 있다.
+   // 4 또는 6 2개의 조건이 있으므로 
+   dice = Math.floor( Math.random() * 6 ) + 1 ;
+   if( dice == 4 || dice ==6 ){
+    document.write( " 10000원 받았다. ("+dice+")<hr>" ) ;
+   }
+   else{
+    document.write( " 땡!!!!!!!!!!! ("+dice+")<hr>" ) ;
+   }
+
+   // 문제.
+   // 가위바위보 컴퓨터랑 대결하기 
+   // 가위 - 1, 바위 - 2, 보 - 3
+   // 컴퓨터는 랜던값, 나는 직접 입력 ( prompt )
+   // 나의 승패 표현 내가 기준
+
+   computer = Math.floor( Math.random() * 3 )  + 1 ;
+   person = Number( /* prompt( "가위 1 , 바위 2 , 보 3" ) */ 2);
+   result = (person - computer) ;
+
+   /* if( result == 0 ){
+    document.write( ` 비겼습니다. ${person} , ${computer} ` ) ;
+   }
+   else if( (result < 2 && result > 0) || result < -1 ){
+    document.write( `이겼습니다. ${person} , ${computer} `) ;
+   }
+   else{
+    document.write( ` 졌습니다. ${person} , ${computer} ` ) ;
+   }
+ */
+   if( person === computer ){
+    document.write( ` 비겼습니다. ${person} , ${computer} ` ) ;
+   }
+   else if( ( person > computer && (person > 2 && computer != 1 )) || ( person == 1 && computer == 3 ) || ( person == 2 && computer ==1 )){
+    document.write( `이겼습니다. ${person} , ${computer} `) ;
+   }
+   else{
+    document.write( ` 졌습니다. ${person} , ${computer} ` ) ;
+   }
+
+
+
+   function start(){
+    //alert(" 오!! 클릭했네!!!");
+    //document.write("클릭했네??");
+    // 자바스크립트에 document.write를 쓰면 바디 태그에 덮어씌움
+    // 기존의 태그가 사라짐 
+    document.getElementById("출력위치").innerText="눌렀다";  
+   }
+
+
+/* 문제 1.  
+  세 개의 정수를 입력받아서 가장 큰 수를 출력하세요.
+  단, 같은숫자 입력은 하지 말것.
+
+  문제 2.
+  주사위 게임 컴퓨터와 함께
+  - 컴퓨터와 내가 각각 주사위 2개씩 던진다.
+  - 주사위의 합이 큰쪽이 이긴다.
+  - 단, 주사위가 같은 값이면 이긴다.
+  ex) 컴 : 1 ,5   나 : 2 , 3  -> 나의 패배
+      컴 : 5 ,6   나 : 1 , 1  -> 나의 승리 (주사위의 값이 같음) */
+
+
+
+
+
+  </script>
+
+</head>
+<body>
+
+  <!--    onclick="start()" 는 버튼태그를 클릭하면 자바스크립트에서 start라는 이름의 함수를 실행해라  라는 뜻-->
+  <button onclick="start()">나를 클릭해줘</button>
+  <H1 id="출력위치"></H1>
+
+
+  
+</body>
+</html>
