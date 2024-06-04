@@ -19,7 +19,7 @@
     glass = 2;
     howLong = 7300;
     howMuch = Number( prompt("하루에 몇잔의 소주를 드시나요?"));
-    minite = howLong * howMuch;
+    minite = howLong * howMuch * glass;
     hour = Math.round( minite / 60 );
     day = Math.round( hour / 24 );
     document.write( "하루 " + howMuch + " 잔의 소주를 마십니다.<br>" );

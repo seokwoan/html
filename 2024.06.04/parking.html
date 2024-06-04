@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+/* 문제
+주차비를 정산하는 프로그램 만들기
+기본 주차비는 1000원 이고, 기본 주차시간은 30분이다.
+ - 12분 주차해도 1000원 이다.
+ 10분당 100원
+ - 10분이상 주차할 경우 100원씩 부과된다.
+ 단, 2시간 이상 주차시 기본요금은 1700원이다.
+ - 2시간 5분 주차시 기본요금은 1700원이다. 2시간에 대한 요금은 1700원으로 계산한다.
+ - 2시간 23분 주차시 1900원이다.
+ 4시간 이상 주차시 기본요금은 2700원이다.
+ - 4시간에 대한 요금은 2700원으로 계산한다.
+ -4시간 35분 주차시 기본 요금 2700 + 30분 초과 금액 300계산해서 3000원이다.
+ 주차를 총 몇분 하였는가 입력하면 주차비가 출력되어야 한다.
+ 30분까지는 1000원 40분은 1100원
+ 2시간 9분까지는 1700원 2시간 10분은 1800원
+ 4시간 9분까지는 2700원 4시간 10분은 2800원 */
+
+/*     parkBase = 1000 ;
+    park2hour = 1700 ;
+    park4hour = 2700 ;
+    parkExtraPay = 100 ;
+    parkTime = Number( prompt("주차 시간은 몇분 입니까?") ) ;
+    parkExtraTime30 = Math.floor((parkTime-30)/10) ;
+    parkExtraTime120 = Math.floor((parkTime-120)/10) ;
+    parkExtraTime240 = Math.floor((parkTime-240)/10) ;
+
+    park30 = ( parkTime <= 30 ) ? 1000 : (parkBase + (parkExtraTime30 * parkExtraPay)) ;
+    park120 = ( parkTime == 120 ) ? park2hour : ( parkTime >=121 ) ? ( park2hour + ( parkExtraTime120 * parkExtraPay ) ) : park30 ;
+    parkFianl = ( parkTime == 240 ) ? park4hour : (parkTime >= 241 ) ? ( park4hour + ( parkExtraTime240 * parkExtraPay ) ) : park120 ;
+
+
+    document.write( "주차요금은 " + parkFianl + " 원 입니다.") ; */
+
+/*     cost = 1000 ;
+    parkingTime = 3 ;
+    add = 100 ;
+    cpt = Number( prompt("총 주차시간 몇 분 ") ) ;
+    time = Math.floor( cpt / 10 ) ; 
+
+
+    cost = ( cpt >= 240 ) ? 2700 : cost = ( cpt >= 120 ) ? 1700 : cost ;
+    parkingTime = ( cpt >= 240 ) ? 24 : parkingTime = ( cpt >= 120 ) ? 12: parkingTime ; 
+
+
+    price = ( time <= parkingTime ) ? cost : cost + ( time - parkingTime ) * add ;
+
+    document.write(`주차시간 : ${cpt}분 , 주차비 : ${price.toLocaleString()}원 <br>`) ;
+ */
+
+    // 논리 연산자 " && (and) " , " || (or) " , " ! (not) "
+    // 연산자는 두개의 피연산자 사이에 배치된다.
+    // 논리 연산자는 참과 거짓을 피연산자로 사용하는 연산자이다.
+    // 두개 이상의 조건식을 사용하는 경우에 논리연산자 ( &&, || )을 사용한다.
+    // 10 && 5 -> 작동 X, ( 10 > 3)참 && ( 5 > 10 )거짓  
+    // " && " -> 참 && 참 -> 결과 : 참 
+    //           참 && 거짓 -> 결과 : 거짓
+    //           거짓 && 참 -> 결과 : 거짓
+    //           거짓 && 거짓 -> 결과 : 거짓
+    // " && " 양쪽 전부 참이어야 참 
+    // " || " -> 참 || 참 -> 결과 : 참
+    //           참 || 거짓 -> 결과 : 참
+    //           거짓 || 참 -> 결과 : 참
+    //           거짓 || 거짓 -> 결과 : 거짓
+    // " || " 한쪽만 참이어도 참 
+
+    // 바이킹 타는 조건은 카거 150이상 190이하만 가능
+    //(키 >= 150 ) && ( 키 <= 190 )
+    // 두개의 주사위를 던져서 합이 4 이거나 9라면 당첨이다.
+    //( 합 == 4 ) || ( ( 합 == 9 ) && ( 조건식 ) ) || ( 조건식 ) 
+
+    // 범퍼카 탑승 조건 : 키 130이상 탑승가능, 키가 110이상일 경우 부모 동반 하면 탑승가능
+    //( 키 >= 130 ) ||  (키 >= 110) && ( 부모 == 동반 ) 
+    // 논리연산자의 경우 괄호가 없다면 순서대로 참 거짓 판별 
+    // -> ( 키 >= 130 \\ ( 키 >=110 ) 먼저 참거짓 판별 -> 참 이면 참 && ( 부모 == 동반 ) -> 참거짓 판별 
+
+    // 무한 리필 고깃집 : 운동선수 2명이상 입장불가
+    //                  하지만 운동부 중학생 까지는 입장가능
+    //                  몸무게 140키로 이상 입장 불가 
+    //(( 운동선수 < 2 ) || ( 운동선수 <= 중학생)) && ( 몸무게 < 140 )
+
+    // " ! (not) " 연산자 
+    
+    사과 = 10;
+
+    document.write( (사과 >= 1 ) ? "판매중" : "품절" ) ;
+    document.write( "<hr>" ) ;
+    document.write( (!사과) ? "품절" : "판매중" ) ;
+    
+
+  
+
+
+
+  </script>
+
+</head>
+
+<body>
+  
+</body>
+
+</html>
