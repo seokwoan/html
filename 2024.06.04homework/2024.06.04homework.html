@@ -44,11 +44,12 @@
     playerDice2 = Math.floor( Math.random() * 6 ) + 1 ;
     comTotal = comDice1 + comDice2 ; 
     playerTotal = playerDice1 + playerDice2 ;
+    dice = `컴퓨터 주사위 ${comDice1} , ${comDice2} 플레이어 주사위 ${playerDice1} , ${playerDice2}`
     
     document.write( '<hr>' )
     if( (comDice1 != comDice2 && playerDice1 == playerDice2) || ( comDice1 != comDice2 && playerTotal > comTotal ) ){
       document.write( " 승리하셨습니다. 축하합니다. <br>" ) ;
-      document.write( `컴퓨터 주사위 ${comDice1} , ${comDice2} 플레이어 주사위 ${playerDice1} , ${playerDice2} `)
+      document.write( `컴퓨터 주사위 ${comDice1} , ${comDice2} 플레이어 주사위 ${playerDice1} , ${playerDice2}`)
     }
     else if( ( ( comDice1 == comDice2 && playerDice1 == playerDice2 ) && ( comDice1 == comDice2 && playerTotal > comTotal ) ) ){
       document.write( " 승리하셨습니다. 축하합니다. <br>" ) ;
@@ -64,7 +65,18 @@
     }
     
 
-
+    if( comDice1 != comDice2){
+      if( playerDice1 = playerDice2 || playerTotal > comTotal ){
+        document.write("승리하셨습니다. " +dice);
+      }
+    }else if( comDice1 == comDice2){
+      if( playerDice1 == playerDice2 && playerTotal > comTotal ){
+        document.write("승리하셨습니다. " +dice);
+        else if( comDice1 == playerDice1 ){
+          document.write("무승부 입니다. " +dice);
+        }
+      }
+    }
 
 
   </script>

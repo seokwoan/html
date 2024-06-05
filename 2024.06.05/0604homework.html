@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    user1 = Math.floor(Math.random() *6 ) + 1;
+    user2 = Math.floor(Math.random() *6 ) + 1;
+    com1 = Math.floor(Math.random() *6 ) + 1;
+    com2 = Math.floor(Math.random() *6 ) + 1;
+
+    usersum = user1 + user2;
+    comsum = com1 + com2;
+    dice = ` 나 : ${user1} , ${user2} , (${usersum}) , 컴 : ${com1} , ${com2} , (${comsum} ) ` ;
+
+    if( usersum == comsum && com1 != com2 ){
+      document.write( "나의 패배 + dice" );
+    }
+    else if( user1 != user2 ){
+      document.write( "나의 패배" + dice ) ;
+    }
+    else if( usersum > comsum ){
+      if( com1 == com2 && user1 != user2 ){
+        document.write( "나의 패배" + dice );
+      }else{
+        document.write( "나의 승리" + diec );
+      }
+    }else{
+      if( user1 == user2 && com1 != com2 ){
+        document.write( "나의 승리" + dice );
+      }else{
+      document.write( "나의 패배" + dice );
+      }
+    }
+  </script>
+
+</head>
+<body>
+  
+</body>
+</html>
