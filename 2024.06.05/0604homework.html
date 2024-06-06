@@ -12,27 +12,35 @@
     com1 = Math.floor(Math.random() *6 ) + 1;
     com2 = Math.floor(Math.random() *6 ) + 1;
 
-    usersum = user1 + user2;
-    comsum = com1 + com2;
-    dice = ` 나 : ${user1} , ${user2} , (${usersum}) , 컴 : ${com1} , ${com2} , (${comsum} ) ` ;
+    userSum = user1 + user2;
+    comSum = com1 + com2;
+    dice = ` 나 : ${user1} , ${user2} , (${userSum}) , 컴 : ${com1} , ${com2} , (${comSum} ) ` ;
 
-    if( usersum == comsum && com1 != com2 ){
-      document.write( "나의 패배 + dice" );
-    }
-    else if( user1 != user2 ){
-      document.write( "나의 패배" + dice ) ;
-    }
-    else if( usersum > comsum ){
-      if( com1 == com2 && user1 != user2 ){
-        document.write( "나의 패배" + dice );
-      }else{
-        document.write( "나의 승리" + diec );
-      }
-    }else{
+    if( userSum == comSum ){
       if( user1 == user2 && com1 != com2 ){
-        document.write( "나의 승리" + dice );
-      }else{
-      document.write( "나의 패배" + dice );
+        document.write( "나의 승리" +dice );
+      }
+      else if( user1 != user2 && com1 == com2 ){
+        document.write( "나의 패배" +dice );
+      }
+       else{
+        document.write( "비김" +dice );
+       }
+    }
+    else if( userSum > comSum ){
+      if( com1 == com2 && user1 != user2 ){
+        document.write( "나의 패배" +dice );
+      }
+      else{
+        document.write( "나의 승리" +dice );
+      }
+    }
+    else{
+      if( user1 == user2  && com1 != com2 ){
+        document.write( "나의 승리" +dice );
+      }
+      else{
+        document.write( "나의 패배" +dice );
       }
     }
   </script>

@@ -4,8 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>0605homework</title>
+
+    <script>
+
+      const play = Number( prompt("컴퓨터가 맞출 숫자를 입력하세오.") ) ;
+      var max = 50;
+      var min = 1;
+      var com = Math.floor( Math.random() * (max - min + 1) ) + min ;
+      comSpare1 = 0;
+      comSpare2 = 0;
+      document.write( ` 입력한 숫자는 ${play} 입니다. <br>`);
+
+      while( true ){        
+        if( com == play ){
+          document.write( ` ${com} 정답 `) ;
+          break;
+        }
+        else if( com > play ){
+          document.write( ` ${com} DOWN <br>` ) ;
+          comSpare1 = com;
+          max = comSpare1;
+          com = Math.floor( Math.random() * ( max - min ) ) + min  ;
+        }  
+        else if( com < play){
+          document.write( ` ${com} UP <br>`) ;
+          comSpare2 = com;
+          min = comSpare2 + 1;
+          com = Math.floor( Math.random() * ( max - min  ) ) + min  ;
+        }  
+      }
+
+
+    </script>
+
+
+
 </head>
+
 <body>
   
 </body>
+
 </html>

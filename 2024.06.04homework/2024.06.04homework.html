@@ -65,24 +65,28 @@
     } */
     
 
-    if( comDice1 != comDice2){
-      if( playerDice1 = playerDice2 || playerTotal > comTotal ){
-        document.write("승리하셨습니다. <br>" +dice ) ;
-      }else if(playerTotal == comTotal ){
-        document.write("무승부 입니다. <br>" +dice) ;
-       }else{ 
-        document.write("패배하셨습니다.<br>" + dice ) ;
-      }
-    }else if( comDice1 == comDice2){
-      if( playerDice1 == playerDice2 && playerTotal > comTotal ){
-        document.write("승리하셨습니다. <br>" +dice);
-      }else if( comDice1 == playerDice1 && playerTotal == comTotal){
-          document.write("무승부 입니다. <br>" +dice) ;
-        }else{
-          document.write("패배하셨습니다.<br>" + dice) ;
-        }
-      }
-    
+   if( playerDice1 == playerDice2 ){
+    if( comDice1 == comDice2 && comTotal > playerTotal){
+      document.write( " 패배하였습니다. 한 번더 도전해 보세요. <br>" + dice ) ;
+    }
+    else if( comDice1 == comDice2 && comTotal == playerTotal){
+      document.write( " 무승부 입니다. <br>" +dice ) ;
+    }
+    else{
+      document.write( " 승리하셨습니다. 축하합니다. <br>" + dice ) ;
+    }
+   }
+   else if( playerDice1 != playerDice2){
+    if( comDice1 == comDice2 || comTotal > playerTotal ){
+      document.write( " 패배하였습니다. 한 번더 도전해 보세요. <br>" + dice ) ;
+    }
+    else if( comTotal == playerTotal ){
+      document.write( " 무승부 입니다. <br>" +dice ) ;
+    }
+    else{
+      document.write( " 승리하셨습니다. 축하합니다. <br>" + dice ) ;
+    }
+   }
 
 
   </script>

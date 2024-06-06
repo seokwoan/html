@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+  
+    const playNum = Number( prompt("컴퓨터가 맞출 숫자를 입력하세오.") ) ;
+        var comNum = Math.floor( Math.random() * 50 ) + 1 ;
+        while( true ){        
+          if( comNum == playNum ){
+            document.write( ` ${comNum} 정답 `) ;
+            break;
+          }
+          else if( comNum != playNum ){
+            if( comNum >playNum ){
+            document.write( ` ${comNum} DOWN <br>` ) ;
+            comNum = Math.floor( Math.random() * ( comNum - 1 ) ) + 1  ;
+            }
+            else if( comNum < playNum){
+              document.write( ` ${comNum} UP <br>`) ;
+              comNum = Math.floor( Math.random() * ( 50- comNum ) ) + comNum + 1 ;
+            }
+          }
+        }
+
+
+        else if( com < play){
+          document.write( ` ${com} UP <br>`) ;
+          comSpare1 = com;
+          max = comSpare1;
+          com = Math.floor( Math.random() * (max - min + 1) ) + min ;
+          if( com < play ){
+            document.write( ` ${com} UP <br>`) ;
+            comSpare2 = com;
+            min = comSpare2;
+            com = Math.floor( Math.random() * (max - min + 1) ) + min ;
+          }
+        }
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
