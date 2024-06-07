@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript_제어문</title>
+
+  <script>
+    // 문제 1.
+    // 1 부터 100 까지 숫자를 출력하세요.
+    // 숫자중에서 3의 배수에 해당하는 숫자 대신 '3배' 라고 출력
+    //           8의 배수에 해당하는 숫자 대신 '8배' 라고 출력
+    //       3과 8의 공동의 배수 숫자 대신 '3,8배' 라고 출력
+
+    for( var i = 1 ; i <= 100; i++){
+      if( i % 3 == 0 && i % 8 == 0 ){
+        document.write( " 3 , 8 배 <br>" ) ;
+      }
+      else if( i % 3 == 0 ){
+        document.write( " 3배 <br>" ) ;
+      }
+      else if( i % 8 == 0 ){
+        document.write( " 8배 <br>" ) ;
+      }
+      else{
+        document.write( i + "<br>") ;
+      }
+    }
+
+
+    //문제 2.
+    // 네개의 숫자로 이루어진 비밀번호 찾기
+    // 각각의 숫자는 1 ~ 9중 하나이다.
+    // 네개의 숫자는 서로 중복이 없다.
+    // 첫번째 숫자는 네번째 숫자보다 2 더 크다.
+    // 두번째 숫자는 세번째 숫자보다 작다.
+    // 네개의 비밀번호 숫자와 비밀번호 숫자역순의 합은 16456이다.
+    // 예) 비밀번호가 1234라면 1234 + 4321
+
+
+    // h = 9
+    // j = 1
+    // k = 3
+    // l = 7
+    // 비밀번호 9137
+    var a = 0 ;
+    var b = 0 ;
+    var c = 0 ;
+    var d = 0 ;
+    var b_1 = 0 ;
+    var c_1 = 0 ;
+    var passWord = a * 1000 + b * 100 + c * 10 + d ;
+    var re_pass = d * 1000 + c * 100 + b *10 + a ;
+
+
+    while(true){
+      if( passWord + re_pass == 16456 && a != b && a != c && b != d && c != d ){
+        document.write( ` 비밀번호는 ${passWord} 입니다. <br>` ) ;
+        break;
+      }
+      else if( passWord + re_pass != 16456 ){
+        d = Math.floor( Math.random() * 7 ) + 1 ;// a가 d보다 2크므로 d의 최대값은 7
+        a = d + 2 ;
+        b_1 = Math.floor( Math.random() * 9 ) + 1 ;
+        c_1 = Math.floor( Math.random() * 9 ) + 1 ;
+        if( b_1 < c_1 ){
+          b = b_1 ;
+          c = c_1 ; 
+        }
+        /* else{
+          b_1 = Math.floor( Math.random() * 9 ) + 1 ;
+          c_1 = Math.floor( Math.random() * 9 ) + 1 ;
+        } */
+        passWord = a * 1000 + b * 100 + c * 10 + d ;
+        re_pass = d * 1000 + c * 100 + b *10 + a ;
+      }
+    }  
+  
+
+
+  </script>
+
+</head>
+
+<body>
+  
+</body>
+
+</html>

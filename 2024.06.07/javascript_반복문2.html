@@ -83,14 +83,52 @@
       }
     } */
 
-    for( var i = 1 ; i <= 5 ; i++){
+    /* for( var i = 1 ; i <= 5 ; i++){
       document.write( " 첫번째 반복문 " + i + " <br> " ) ;
       for( var k = 1 ; k <= 3 ; k++)
         document.write( " 두번째 " + k + "<br>" ) ;
+    } */
+
+
+    // do ~ while()
+    // 동작순서 : 초기값 -> " {} " 실행 -> 증감식 -> 조건식 비교 -> 참 ->  
+    // " {} " 실행 -> 증감식 -> 조건식 비교 -> 거짓 
+
+    var i = 1 ;
+    do{
+      document.write( i + "<br>" ) ;
+      i++;
+    }while( i <= 5 );
+    // 초기값
+    // do{
+    //   실행내용
+    //   증감식
+    // }while( 조건식 );
+
+    var w = 10 ;
+    while( w < 10 ){ // w의 초기값에 의해 조건식이 거짓이 되므로 실행안됨
+      document.write( w + " while문<br> " ) ;
+      w++;
     }
 
+    for( var f = 10 ; f < 10 ; f++ ){
+      document.write( f + " for문<br> " ) ;
+    }
 
-    
+    var d = 10 ;
+    do{
+      document.write( d + " dowhile문<br> " ) ;
+      d++;
+    }while( d < 10 ) ;
+    // 조건식과 관계없이 첫 실행은 무조건 실행
+    // 네트워크 프로그램에 연결 부분을 do~ while로 만든다
+    /*
+      do{
+        다른 컴퓨터 접속 시도 코드 ; 
+      }while( 연결됨? ) ; 연결안됐으면 참 연결 됐으면 거짓 
+    */
+
+
   </script>
 
 </head>
