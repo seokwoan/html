@@ -7,40 +7,38 @@
 
   <script>
   
-    const playNum = Number( prompt("컴퓨터가 맞출 숫자를 입력하세오.") ) ;
-        var comNum = Math.floor( Math.random() * 50 ) + 1 ;
-        while( true ){        
-          if( comNum == playNum ){
-            document.write( ` ${comNum} 정답 `) ;
-            break;
-          }
-          else if( comNum != playNum ){
-            if( comNum >playNum ){
-            document.write( ` ${comNum} DOWN <br>` ) ;
-            comNum = Math.floor( Math.random() * ( comNum - 1 ) ) + 1  ;
-            }
-            else if( comNum < playNum){
-              document.write( ` ${comNum} UP <br>`) ;
-              comNum = Math.floor( Math.random() * ( 50- comNum ) ) + comNum + 1 ;
-            }
-          }
+    const play = Number( prompt("컴퓨터가 맞출 숫자를 입력하세오.") ) ;
+    var com = Math.floor( Math.random() * 50 ) + 1 ;
+    while( true ){        
+      if( com == play ){
+        document.write( ` ${com} 정답 `) ;
+        break;
+      }
+      else if( com != play ){
+        if( com >play ){
+        document.write( ` ${com} DOWN <br>` ) ;
+        com = Math.floor( Math.random() * ( com - 1 ) ) + 1  ;
         }
-
-
         else if( com < play){
           document.write( ` ${com} UP <br>`) ;
-          comSpare1 = com;
-          max = comSpare1;
-          com = Math.floor( Math.random() * (max - min + 1) ) + min ;
-          if( com < play ){
-            document.write( ` ${com} UP <br>`) ;
-            comSpare2 = com;
-            min = comSpare2;
-            com = Math.floor( Math.random() * (max - min + 1) ) + min ;
-          }
+          com = Math.floor( Math.random() * ( 50- com ) ) + com + 1 ;
         }
-    
+      }
+    else if( com < play){
+      document.write( ` ${com} UP <br>`) ;
+      comSpare1 = com;
+      max = comSpare1;
+      com = Math.floor( Math.random() * (max - min + 1) ) + min ;
+      if( com < play ){
+        document.write( ` ${com} UP <br>`) ;
+        comSpare2 = com;
+        min = comSpare2;
+        com = Math.floor( Math.random() * (max - min + 1) ) + min ;
+      }
+    }
+    }  
   </script>
+
 </head>
 <body>
   

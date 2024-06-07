@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript_반복문2</title>
+
+  <script>
+
+    /*
+      if(true){
+        if(false){
+        }
+        else if(){
+        }
+      }로 if문의 중첩이 가능
+    */
+
+    // while문의 중첩 반복문 안에 반복문이 들어갈 수 있음
+
+    /* var i = 1 ;
+    var k = 1 ;
+    while( i <= 5 ){
+      document.write( ` ${i} <br> ` ) ;
+      k = 1 ; // 변수 초기화를 통해 while문의 반복이 가능하게 해줌
+              // 변수 초기화를 하지 않으면 첫번째 반복문 실행에서 
+              // k값이 고정되어 거짓으로 실행되지 않음
+              // 초기화를 하지 않으면 1번만 실행 반복하려면 초기화 
+              // 초기화의 값은 while문의 바깥이면 위치는 상관 없다. 
+      while( k <= 3 ){
+        document.write( ` &nbsp;&nbsp;&nbsp; ${k} <br> ` ) ;
+        // &nbsp -> none break space 줄바꾸지 않는 공백 
+        k++;
+      }
+      // k = 1 ; 밑에서 초기화해도 작동
+      i++;
+    } */
+
+    // for문 for( 초기값; 조건식; 증감식 ) 반복값이 정해졌을때 많이 사용
+    // for문과 while문의 기본 동작순서( 초기값, 조건식, 증감식 을 모두 갖춘경우)
+    // 초기값 ( var i = 1 ; ) -> 조건식 비교 -> 참 -> {} 중괄호 안의 내용 실행
+    // -> 증감식 -> 조건식 비교 ->  거짓 -> 반복문 종료
+
+    /* for( var i = 1 ; i <= 10 ; i++ ){ 
+      // 변수 초기값이 for문에 있어 변수초기화가 된다.
+      document.write( "<br>" + i ) ;
+    }
+
+    var i = 1 ;
+    for( ; i <= 10 ; i++ ){ 
+      // 조건식이 밖에 있어도 " ; " 을 입력해줌
+      // 변수값이 for문 밖에 있어 변수 초기화가 안됨
+
+    } */
+
+    /* for( var i = 1 ; i <= 9 ; i++ ){
+      document.write( ` 4 * ${i} = ${4 * i} <br> ` ) ;
+    }
+
+    var sum = 0 ;
+    for( var i = 1 ; i <= 10 ; i++){
+      sum = sum + i;
+    }
+    document.write( " 1부터 10까지의 총합 : " + sum + "<br>") ; */
+
+    // 1부터 내가 입력한 숫자까지 출력하세요.
+    // 예) 12입력 -> 화면에 1부터 12까지 출력되어야 한다.
+
+  
+    // 1부터 내가 입력한 숫자까지 중에서 3의 배수, 7의 배수 출력하세요
+
+    /* const n = Number( prompt( " 숫자를 입력하세요. " ) ) ;
+    
+    for( var m = 1 ; m <= n ; m++ ){
+      if( m % 3 == 0 && m % 7 ==0){
+        document.write( m + " &nbsp;3과 7의 배수입니다.<br>") ;
+      }
+      else if( m % 3 == 0 ){
+        document.write( m + " &nbsp;3의 배수입니다. <br>") ;
+      }
+      else if( m % 7 == 0 ){
+        document.write( m + " &nbsp;7의 배수입니다.<br>") ;
+      }
+    } */
+
+    for( var i = 1 ; i <= 5 ; i++){
+      document.write( " 첫번째 반복문 " + i + " <br> " ) ;
+      for( var k = 1 ; k <= 3 ; k++)
+        document.write( " 두번째 " + k + "<br>" ) ;
+    }
+
+
+    
+  </script>
+
+</head>
+
+<body>
+  
+</body>
+
+</html>

@@ -23,13 +23,13 @@
         else if( com > play ){
           document.write( ` ${com} DOWN <br>` ) ;
           comSpare1 = com;
-          max = comSpare1;
+          max = comSpare1 ;
           com = Math.floor( Math.random() * ( max - min ) ) + min  ;
         }  
         else if( com < play){
           document.write( ` ${com} UP <br>`) ;
-          comSpare2 = com;
-          min = comSpare2 + 1;
+          comSpare2 = com ;
+          min = comSpare2 + 1 ;
           com = Math.floor( Math.random() * ( max - min  ) ) + min  ;
         }  
       }
