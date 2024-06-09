@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+
+    var a = 0 ;
+    var b = 0 ;
+    var c = 0 ;
+    var d = 0 ;
+
+
+    var answer = 0 ;
+    var re_answer = 0 ;
+
+    if( answer + re_answer == 16456 && a != b && a != c && b != d && c != d && b < c){
+      document.write( ` ${answer} 정답입니다. <br>` ) ;
+    }
+    else if( answer + re_answer != 16456 ){
+      for( d = 1 ; d <= 7 ; d++){
+        a = d + 2 ;
+        answer = a * 1000 + b * 100 + c *10 + d ;
+        re_answer = d * 1000 + c *100 + b * 10 + a;
+        if( answer + re_answer == 16456 && a != b && a != c && b != d && c != d && b < c){
+          document.write( ` ${answer} 정답입니다. <br>` ) ;
+          break;
+        }
+        else if( answer + re_answer != 16456 ){
+          for( b = 1 ; b <= 8 ; b++){
+            answer = a * 1000 + b * 100 + c *10 + d ;
+            re_answer = d * 1000 + c *100 + b * 10 + a;
+            document.write( answer + " <BR> " ) ;
+            if( answer + re_answer == 16456 && a != b && a != c && b != d && c != d && b < c ){
+              document.write( ` ${answer} 정답입니다. <br>` ) ;
+              break;
+            }
+            else if( answer + re_answer != 16456 ){
+              for( c = 1 ; c <= 9 ; c++){
+                answer = a * 1000 + b * 100 + c *10 + d ;
+                re_answer = d * 1000 + c *100 + b * 10 + a;
+                if( answer + re_answer == 16456 && a != b && a != c && b != d && c != d && b < c ){
+                  document.write( ` ${answer} 정답입니다. <br>` ) ;
+                  b = 9;
+                  break;
+                }  
+              }
+            }  
+          }
+        }
+      }
+    }
+    
+
+
+    // document.write( answer + " <BR> " ) ;
+    // document.write( ` ${answer} 정답입니다. <br>` ) ;
+    // answer + re_answer == 16456 && a != b && a != c && b != d && c != d && b < c
+    // answer = a * 1000 + b * 100 + c *10 + d ;
+    // re_answer = d * 1000 + c *100 + b * 10 + a;
+  </script>
+
+</head>
+
+<body>
+  
+</body>
+
+</html>
