@@ -82,19 +82,101 @@
     // 단, class , name , 태드명으로 선택할때에는 getElements이다. 개체다수
     // document.getElementById("id")
 
-    function calc(){
-      let num1 = Number( prompt( " 첫번째 정수 " ) );
-      let num2 = Number( prompt( " 두번째 정수 " ) ); 
-      print( num1 , num2 ) ;
-    }
+    // function calc(){
+    //   let num1 = Number( prompt( " 첫번째 정수 " ) );
+    //   let num2 = Number( prompt( " 두번째 정수 " ) ); 
+    //   print( num1 , num2 ) ;
+    // }
 
-    function print( num1 , num2 ){
-      sum = num1 + num2 ;
-      document.getElementById("result").innerText=sum;
-    }
+    // function print( num1 , num2 ){
+    //   var sum = num1 + num2 ;
+    //   document.getElementById("result").innerText=sum;
+    // }
+
+    // 함수의 매개변수는 함수에 귀속되어있는 지역변수다.
+    // 지역변수와 전역변수
+    // 전역변수는 어느곳이나 사용가능한 변수 - " {} " 블록에 생성하지 않은 변수
+    // 지역변수의 선언은 자바스크립트 상단에 선언한다. 주로 let, const
+    // let과 var - 재할당 가능여부
+    // let a = 10;  let a = 20; 불가
+    // var b = 20;  var b = 2000; 가능
+    // 지역변수는 " {} " 블록 안에서 생성된 변수이다. 또는 매개변수
+    // 지역변수가 생성된 " {} " 블록 안에서만 사용가능
+    // 지역변수는 주로 var , let 사용
+
+    // 전역변수와 지역변수의 우선순위 - 지역변수가 우선이다.
+    // let count = 10; 전역변수
+    // function increment(){
+    //   var count = 20;
+    // }
+    // function의 count변수는 지역변수인 함수안의 값인 20을 가짐
+    //  function increment( count ){
+    //  매개변수와 전역변수의 이름이 같을경웅 매개변수가 우선
+    //  }
     
 
+    // 입력1 버튼을 클릭하여 정수 하나를 입력하고 div#result애 출력하세요
 
+
+    // let num1 = 0;
+    // let num2 = 0;
+    // function input1(){
+    //   num1 = Number( prompt( " 정수를 입력하세요 " ) ) ;
+    //   document.getElementById("result").innerText=num1;
+    // }
+
+    // function input2(){
+    //   num2 = Number( prompt( " 정수를 입력하세요 " ) ) ;
+    //   document.getElementById("result").innerText=num2;
+    // }
+    
+    // function sum(){
+    //   합 = num1 + num2;
+    //   document.getElementById("result").innerText=`${num1} + ${num2} = ${합}`;
+    // }
+    // 함수에서 만들어진 변수를 다른 함수로 넘기려면 전역변수로 사용
+
+
+    function getData(op){
+      var n1 = Number(document.querySelector("#num1").value);
+      var n2 = Number(document.querySelector("#num2").value);
+      var 결과 = 0 ;
+      switch( op ){
+        case '-': 결과 =  n1 - n2 ;
+          break;
+        case '*': 결과 = n1 * n2 ;
+          break;
+        case '/': 결과 = n1 / n2 ;
+          break;
+      }
+      document.querySelector("#result").innerText=결과;
+    }
+
+    function plus(){
+      var n1 = document.getElementById("num1").value;
+      var n2 = document.getElementById("num2").value;
+      //console.log(n1); console.log(n2);
+      n1 = Number(n1);
+      n2 = Number(n2);
+      console.log(n1+n2);
+      document.querySelector("#result").innerHTML=n1 + n2;
+      // document.querySelectorAll(".box"); 다수의 태그선택시
+    }
+
+    function minus(){
+      getData('-');
+    }
+
+    function mul(){
+      getData('*'); 
+    }
+
+    function div(){
+      getData('/'); 
+    }
+
+    //숙제
+    // 1개의 함수로만 더하기 빼기 곱하기 나누기 만들기
 
   </script>
 
@@ -103,8 +185,26 @@
 <body>
 
   <!-- onclick="함수이름()" html태그의 이벤트에 의한 함수 호출 -->
-  <button onclick="calc()">계산</button>
+  <!-- <button onclick="calc()">계산</button> -->
+
+  <!-- <button onclick="input1()">입력1</button>
+  <button onclick="input2()">입력2</button>
+  <button onclick="sum()">더하기</button> -->
+
+  <div id="input_box">
+    <input type="text" id="num1">
+    <!-- input태그에 들어가는 값은 value에 저장됨
+         input과 select를 제외한 다른 태그는 value값이 없음-->
+    <input type="text" id="num2">
+  </div>
+  <button onclick="plus()">더하기</button>
+  <button onclick="minus()">빼기</button>
+  <button onclick="mul()">곱하기</button>
+  <button onclick="div()">나누기</button>
+  
+
   <div id="result"></div>
+
   
 </body>
 

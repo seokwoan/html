@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript_함수2</title>
+
+    <script>
+
+      function save(){
+        // input 태그에 입력한 내용을 ul#list에 목록으로 출력해라.
+        var good = document.getElementById("data").value;
+        var list = document.getElementById("list"); // list변수에 ul#태그 저장
+                                                    // ul태그의 객체가 list변수에 저장
+        list.innerHTML = list.innerHTML + "<li>"+good+"</li>"; 
+        // createElement , appendChild , creaeTextNode
+        // list.appendChild( document.createElement("li") ); -> ul태그안에 새로운 li 태그삽입
+      }
+
+      // addEventListener -> 이벤트를 넣어주는 함수
+      // addEventListener ( 이벤트명 , 이벤트처리 함수(함수의 이름만 넣음 매개변수x) )
+      // document.getElementById("td1").addEventListener( 'click' , save ) ;
+      // 순차적으로 실행하므로 스크립트가 실행될때 body태그가 생성되지않음
+      // body가 생성된 후에 실행해야 작동함
+      window.onload = function(){
+        document.getElementById("td1").addEventListener( 'click' , save ) ;
+      }
+
+    </script>
+
+</head>
+
+<body>
+  
+  <h2> 오늘의 나를 칭찬하기 </h2>
+  <input type="text" id="data">
+
+  <button onclick="save()">저장</button>
+
+  <ul id="list"></ul>
+
+
+  <table id="board">
+    <tr>
+      <td id="td1"></td>
+      <td id="td2"></td>
+      <td id="td3"></td>
+    </tr>
+    <tr>
+      <td id="td4"></td>
+      <td id="td5"></td>
+      <td id="td6"></td>
+    </tr>
+  </table>
+
+  <style>
+    #board{ border-collapse : collapse ; }
+    #board tr td{
+      border : 1px solid black;
+      width : 100px;
+      height : 100px;
+    }
+  </style>
+  
+</body>
+
+</html>
