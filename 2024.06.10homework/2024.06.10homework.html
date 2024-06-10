@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0610homework</title>
+
+  <script>
+
+    function calc( op ){
+      var n1 = Number(document.querySelector("#num1").value);
+      var n2 = Number(document.querySelector("#num2").value);
+      var 결과 = 0 ;
+      // switch( op ){
+      //   case '+': 결과 =  n1 + n2 ;
+      //     break;
+      //   case '-': 결과 =  n1 - n2 ;
+      //     break;
+      //   case '*': 결과 = n1 * n2 ;
+      //     break;
+      //   case '/': 결과 = n1 / n2 ;
+      //     break;
+      // }
+      if( op == '+'){
+      결과 =  n1 + n2 ;
+      }
+      else if( op == '-'){
+      결과 =  n1 - n2 ;
+      }
+      else if( op == '*'){
+      결과 = n1 * n2 ;
+      }
+      else if( op == '/'){
+      결과 = n1 / n2 ;
+      }
+      document.querySelector("#result").innerText=결과;
+    }
+
+    if( op == '+'){
+      결과 =  n1 + n2 ;
+    }
+    else if( op == '-'){
+      결과 =  n1 - n2 ;
+    }
+    else if( op == '*'){
+      결과 = n1 * n2 ;
+    }
+    else if( op == '/'){
+      결과 = n1 / n2 ;
+    }
+
+
+
+  </script>
+
+
+</head>
+
+<body>
+
+  <input type="text" id="num1">
+  <input type="text" id="num2">
+  <br>
+  <button id="pl" onclick="calc('+')">더하기</button>
+  <button id="mi" onclick="calc('-')">빼기</button>
+  <button id="mu" onclick="calc('*')">곱하기</button>
+  <button id="di" onclick="calc('/')">나누기</button>
+
+  <div id="result"></div>
+  
+</body>
+
+</html>
