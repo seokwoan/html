@@ -28,32 +28,32 @@ function 출력(){ // 총점과 평균을 화면에 출력하는 함수
 
 // 출력으로 바로 2번
 
-// window.onload=function(){
-//   document.getElementById("calc").addEventListener( 'click' , function(){
-//     var korean = Number(document.getElementById("kor").value);
-//     var math = Number(document.getElementById("mat").value);
-//     var english = Number(document.getElementById("eng").value);
-//     var history = Number(document.getElementById("his").value);
-//     출력( korean , math , english , history );
-//   } );
-// }
+window.onload=function(){
+  document.getElementById("calc").addEventListener( 'click' , function(){
+    var korean = Number(document.getElementById("kor").value);
+    var math = Number(document.getElementById("mat").value);
+    var english = Number(document.getElementById("eng").value);
+    var history = Number(document.getElementById("his").value);
+    출력( korean , math , english , history );
+  } );
+}
 
-// function 총점계산( a , b , c , d ){ // 총점 계산만 하는 함수
-//   var sum = a + b + c + d ;
-//   return sum;
-// }
+function 총점계산( a , b , c , d ){ // 총점 계산만 하는 함수
+  var sum = a + b + c + d ;
+  return sum;
+}
 
-// function 평균계산( total ){ // 평균 계산만 하는 함수
-//   var ever = (total / 4) ;
-//   return ever;
-// }
+function 평균계산( total ){ // 평균 계산만 하는 함수
+  var ever = (total / 4) ;
+  return ever;
+}
 
-// function 출력( a , b , c , d ){ // 총점과 평균을 화면에 출력하는 함수
-//   var totalCalc = 총점계산( a , b , c , d );
-//   var everage = 평균계산( 총점계산( a , b , c , d ) );
-//   document.getElementById("total").innerText="총점 : " + totalCalc;
-//   document.querySelector("#avg").innerText="평균 : " + everage;
-// }
+function 출력( a , b , c , d ){ // 총점과 평균을 화면에 출력하는 함수
+  var totalCalc = 총점계산( a , b , c , d );
+  var everage = 평균계산( 총점계산( a , b , c , d ) );
+  document.getElementById("total").innerText="총점 : " + totalCalc;
+  document.querySelector("#avg").innerText="평균 : " + everage;
+}
 
 // 선생님 
 
