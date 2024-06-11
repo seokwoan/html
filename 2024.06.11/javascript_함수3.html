@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript_함수3</title>
+
+  <link rel="stylesheet" href="./static/css/javascript_함수3.css">
+
+  <script>
+
+    //함수 형태 ( 4가지가 있음 )
+    /* 1. 매개변수와 반환값이 없는 함수
+      function eat(){
+        document.write( "나는 샌드위치 먹었다." ) ;
+      }
+
+      2. 매개변수는 있고 반환값이 없는 함수
+        function eat(food){
+          document.write( "나는 " + food + " 먹었다." ) ;undefined
+        }
+
+      3. 매개변수는 없고 반환값이 있는 함수
+        function pickFood(){
+          var food = "청국장";
+          return; // 반환
+        }  
+
+      4. 매개변수와 반환값 모두 있는 함수
+        function eat(food){
+          var str = "나는 " + food + " 먹었다.";
+          return str; // 반환
+        }
+          
+      반환이 무엇이냐
+      return 이라고 한다.
+      함수가 호출 된 위치에 값을 되돌려 놓는 방법
+      함수에 의해 생성된 데이터를 외부로 보내는 방법 - return
+      함수가 끝나면 데이터가 사라짐. 
+      데이터가 사라지지 않게 유지하기 위해 return을 사용
+      함수에 필요한 데이터를 외부에서 가져오는 방법 - 매개변수
+      
+       var ment = eat('냉면');
+
+      
+      함수는 기능(목적)을 정하고 정의해야한다.
+      함수의 기능을 벗어나는 코드 작성은 프로그램동작의 결함, 장애가 될 수 있다. 
+
+      자동차 - 
+      자전거 체인 
+    */   
+
+    // function total(){
+    //   var kor = 90;
+    //   var mat = 80;
+    //   var eng = 60;
+    //   var tot = kor + mat + eng;
+    //   return tot;
+    // } 
+
+    // var scoreTotal = total();
+    // document.write( scoreTotal ) ;
+
+    //window.onload=a();
+    // window에 화면이 다 표시되면 발생하는 이벤트가 onload 
+    // html문서의 모든 리소스(html, css, javascript, 이미지 등등)이 브라우저에
+    // 완전히 로드되면 발생하는 이벤트이다. - window.onload
+    // onload는 태그에서 발생한다. img, iframe, script, link, video 등등)
+    // load가 되면 a라는 함수를 실행해라
+    // window.aoload를 사용하면 매개변수를 사용할수없음 
+    // document.getElementById("power").addEventListener( 'click' , function() )
+    // 익명함수를 사용하면 매개변수를 넣을수 있음. 
+    // 익명함수를 사용할때는 내용을 짧게해서 만들어야함 
+    window.onload=function(){ //익명함수 -> 함수에 이름을 넣지 않고 작성
+                              // 한번만 작동하고 사라짐
+      document.getElementById("power").addEventListener( 'click' , buttonPress )
+
+    // 함수 안에 함수를 만들면 안됨  
+    }
+
+    let onoff = true; //전역변수
+    // onoff변수가 지역변수면 버튼을 클릭하면 생성되서 true의 값을 갖게 생성
+    // 클릭할때마다 생성되므로 true로 생성됨 함수 종료후 false값이
+    // 사라지게됨 -> 다시 누르면 true로 시작해 전원이 껏다 켜지는게 아니라
+    // 꺼짐으로만 작동함
+    // 전역으로 만들어야 if문의 결과로 나온 false가 유지됨
+    // 함수가 끝나도 저장된 변수가 사라지지 않음 
+    function buttonPress(){
+      document.querySelector("#lcd").style.display="none";
+    }
+    
+
+
+  </script>
+
+</head>
+
+<body>
+
+  <div id="lcd">
+    <label>온도</label><b id="temp">25</b><br>
+    <label>운전</label><b id="mode">냉방</b><br>
+    <label>세기</label><b id="strength">1</b>
+  </div>
+
+  <div id="wrap">
+    <div id="power" class="setBox on">전원</div>
+    <div id="increase" class="setBox tem">온도▲</div>
+    <div id="driving" class="setBox mode1">운전선택</div>
+    <div id="indirect" class="setBox mode1">간접바람</div>
+    <div id="reduction" class="setBox tem">온도▼</div>
+    <div id="wind" class="setBox win">바람세기</div>
+  </div>
+
+</body>
+
+</html>
