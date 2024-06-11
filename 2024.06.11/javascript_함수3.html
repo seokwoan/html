@@ -73,21 +73,108 @@
     // 익명함수를 사용할때는 내용을 짧게해서 만들어야함 
     window.onload=function(){ //익명함수 -> 함수에 이름을 넣지 않고 작성
                               // 한번만 작동하고 사라짐
-      document.getElementById("power").addEventListener( 'click' , buttonPress )
+      document.getElementById("power").addEventListener( 'click' , function(){
+        buttonPress("전원");
+      } ) ;
 
+      document.getElementById("increase").addEventListener( 'click' , function(){
+        buttonPress("온도증가");
+      } ) ;
+      document.querySelector("#reduction").addEventListener( 'click' , function(){
+        buttonPress("온도감소");
+      } ) ;
+      document.querySelector("#driving").addEventListener( 'click' , function(){
+        buttonPress("운전선택");
+      })
     // 함수 안에 함수를 만들면 안됨  
     }
 
     let onoff = true; //전역변수
+    let temp = 0;
+    let 운전 = 1;  // 1:냉방 , 2:자동 , 3:제습, 4:난방, 5:송풍
+    let 동작 = "냉방";
     // onoff변수가 지역변수면 버튼을 클릭하면 생성되서 true의 값을 갖게 생성
     // 클릭할때마다 생성되므로 true로 생성됨 함수 종료후 false값이
     // 사라지게됨 -> 다시 누르면 true로 시작해 전원이 껏다 켜지는게 아니라
     // 꺼짐으로만 작동함
     // 전역으로 만들어야 if문의 결과로 나온 false가 유지됨
     // 함수가 끝나도 저장된 변수가 사라지지 않음 
-    function buttonPress(){
-      document.querySelector("#lcd").style.display="none";
+
+    // buttonPress함수로 전원 온오프 하는 방법 1가지 적용
+    // function buttonPress(){
+    //   if( onoff == true ){
+    //     document.querySelector("#lcd").style.display="none";
+    //     onoff = false;
+    //   }
+    //   else{
+    //     document.querySelector("#lcd").style.display="block";
+    //     onoff = true;
+    //   }
+
+
+
+    // buttonPress함수 하나로 전부 제어하는 법
+    // onload로 작동하는 함수에 익명함수를 넣고 익명함수 안에 
+    // buttonPress 함수를 넣어서 제어할 수 있음
+    // 버튼 눌렀다 -> 버튼에 맞는 함수 실행, 버튼 동작에 따라 화면 표시
+    function buttonPress( target ){
+
+      if( target === "전원" ){
+        power(); // power 함수 호출 - 전원 on off
+      }
+      else if( target === "온도증가" ){
+        temp = tempUpDown(1);
+        // var -> " {} "블록 영역은 함수이다. 
+        // let -> " {} "블록 영역은 선언된 영역 -> 함수면 함수 if면 if
+      }
+      else if( target === "온도감소" ){
+        temp = tempUpDown(-1);
+      }
+      else if( target === "운전선택" ){
+        동작 = driveSelect();
+      }
+
+      document.getElementById("temp").innerText=temp;
+      // 화면 표시해주는 함수와 계산하는 함수를 따로 만들어서
+      // 문제가 되는 부분을 찾기 쉬워짐
+      // 화면에 표시가 안되면 표시되는 부분의 함수를 확인
+      // 계산이 잘못되면 계산 부분의 함수를 확인
+      document.querySelector("#mode").innerText=동작;
+      document.querySelector("#strength").innerText=1;
     }
+
+    function power(){
+      if( onoff == true ){
+        document.querySelector("#lcd").style.display="none";
+        onoff = false;
+      }
+      else{
+        document.querySelector("#lcd").style.display="block";
+        onoff = true;
+      }
+    }  
+
+    function tempUpDown( step ){
+      var nowTemp = Number(document.querySelector("#temp").innerText);
+      // innertext이기때문에 텍스트라 사직연산이 불가하기에 숫자로 바꿔줌
+      return ( nowTemp + step ) ; 
+      // tempUpDown 함수에서 생성된 데이터를 buttonPress에서 사용하기위해
+      // return한다.      
+    }
+
+    function driveSelect(){
+      // 난방, 자동, 제습, 난방, 송풍 순으로 변하도록 동작시킨다. 
+      운전++;
+      if( 운전 > 5 ) 운전 = 1;
+      switch(운전){
+        case 1 : return "냉방";
+        case 2 : return "자동";
+        case 3 : return "제습";
+        case 4 : return "난방";
+        case 5 : return "송풍";
+      }
+    }
+
     
 
 
