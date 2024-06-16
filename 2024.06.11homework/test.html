@@ -7,18 +7,39 @@
 
   <script>
 
-    for( x = 1 ; x <= 5 ; x++){
-      var a = Math.floor( Math.random() * 50 ) + 1 ;
-      var b = Math.floor( Math.random() * 50 ) + 1 ;
-      var c = Math.floor( Math.random() * 50 ) + 1 ;
-      var d = Math.floor( Math.random() * 50 ) + 1 ;
-      document.write(a , b , c , d + "<br>");
-    }  
+    window.onload=function(){
+      document.getElementById("createNum").addEventListener( 'click' , display )
+    }
+
+    function display(){
+      var line = document.getElementById("numBox");
+      line.innerHTML = create();
+    }
+
+    function create(){
+      var c = ''; 
+      for( var i = 1 ; i <= 5 ; i++){
+        var a = '';
+        for( var x = 1 ; x <= 4 ; x++){
+          var b = Math.floor( Math.random() * 50 ) + 1 ;
+          a = a + ' ' + b ;
+        }
+        c = c + a + "<br>" ;
+        //console.log(c);
+      }
+      return c;
+    }
+
+
   </script>
 
 </head>
 
 <body>
+
+  <button id="createNum">숫자만들기</button>
+  <div id="numBox"></div>
+
   
 </body>
 </html>

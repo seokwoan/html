@@ -37,11 +37,12 @@ function bingoCheck(){
   */
 }
 
-function start(){
+function start(line){
+
   // 빙고 게임을 위한 숫자 배치
   // 빙고 시작 버튼 감추기
   // 빙고 진행 상황 보이기
-  $(this).hide(); // this는 현재 함수를 실행한 객체 - div#start
+  $("#start").hide(); // this는 현재 함수를 실행한 객체 - div#start
   $("#screen").show();
   $("#ok").text( endCount );
 
@@ -69,6 +70,8 @@ function start(){
 
   $(".num").click( bingoCheck ); // 숫자가 표시된 td를 클릭하면 
 
+  $(".num").click( score );
+
 }
 
 function init(){
@@ -89,6 +92,434 @@ function draw(){
     // jquery에서는 eq(i)를 사용
     // javascript는 eq(i) or td[1]인 경우 2가지 방법이 사용됨 추후에나옴
   }
+}
+
+
+function gameEnd(){
+  if( endCount >= 5 ){
+    return;
+  }
+}
+
+function score(){
+  var number = $(".num").index(this);
+  if( number < 5 ){
+    if( number == 0 || number%6 == 0 ){
+      if( bingo[0] == 0 && bingo[6] == 0 && bingo[12] == 0 && bingo[18] == 0 && bingo[24] == 0 ){
+        endCount++;
+        if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+            endCount++;
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+          endCount++;
+          if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+            endCount++;
+          }
+        }
+      }  
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+        endCount++;
+        if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+          endCount++;
+        }
+      }
+    }
+    else if( number%4 == 0 ){
+      if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+        endCount++;
+        if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+            endCount++;
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+          endCount++;
+          if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+            endCount++;
+          }
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+        endCount++;
+        if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+          endCount++;
+        }
+      }
+    }
+    else{
+      if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number+20] == 0 ){
+        endCount++;
+        if( bingo[0] == 0 && bingo[1] == 0 && bingo[2] == 0 && bingo[3] == 0 && bingo[4] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  }
+
+  else if( number >= 5 && number < 10 ){
+    if( number == 0 || number%6 == 0 ){
+      if( bingo[0] == 0 && bingo[6] == 0 && bingo[12] == 0 && bingo[18] == 0 && bingo[24] == 0 ){
+        endCount++;
+        if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+            endCount++;
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+          endCount++;
+          if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+            endCount++;
+          }
+        }
+      }  
+      else if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+        endCount++;
+        if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  
+    else if( number%4 == 0 ){
+      if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+        endCount++;
+        if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+            endCount++;
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+          endCount++;
+          if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+            endCount++;
+          }
+        }
+      }
+      else if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+        endCount++;
+        if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  
+    else{
+      if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number+15] == 0 && bingo[number-5] == 0 ){
+        endCount++;
+        if( bingo[5] == 0 && bingo[6] == 0 && bingo[7] == 0 && bingo[8] == 0 && bingo[9] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  }  
+
+  else if( number >= 10 && number < 15 ){
+    if( number == 0 || number%6 == 0 ){
+      if( bingo[0] == 0 && bingo[6] == 0 && bingo[12] == 0 && bingo[18] == 0 && bingo[24] == 0 ){
+        endCount++;
+        if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+            endCount++;
+            if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+              endCount++;
+            }  
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+          endCount++;
+          if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+            endCount++;
+            if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+              endCount++;
+            } 
+          }
+        }
+        else if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+          endCount++;
+          if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+            endCount++;
+            if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10 ] == 0 ){
+              endCount++;
+            }
+          }
+          else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10 ] == 0 ){
+            endCount++;
+            if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+              endCount++;
+            }
+          }
+        }
+      }
+      else if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+          endCount++;
+          if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+            endCount++;
+          } 
+        }
+        else if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+        endCount++;
+        if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+          endCount++;
+          if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+            endCount++;
+          } 
+        }
+        else if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+          endCount++;
+        }
+      }
+    }
+    
+    else if( number%4 == 0 ){
+      if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+        endCount++;
+        if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+            endCount++;
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+          endCount++;
+          if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+            endCount++;
+          }
+        }
+      }
+      else if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+        endCount++;
+        if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  
+    else{
+      if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number+10] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 ){
+        endCount++;
+        if( bingo[10] == 0 && bingo[11] == 0 && bingo[12] == 0 && bingo[13] == 0 && bingo[14] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  }
+
+  else if( number >= 15 && number < 20 ){
+    if( number == 0 || number%6 == 0 ){
+      if( bingo[0] == 0 && bingo[6] == 0 && bingo[12] == 0 && bingo[18] == 0 && bingo[24] == 0 ){
+        endCount++;
+        if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+            endCount++;
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+          endCount++;
+          if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+            endCount++;
+          }
+        }
+      }  
+      else if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+        endCount++;
+        if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  
+    else if( number%4 == 0 ){
+      if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+        endCount++;
+        if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+            endCount++;
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+          endCount++;
+          if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+            endCount++;
+          }
+        }
+      }
+      else if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+        endCount++;
+        if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  
+    else{
+      if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number+5] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 ){
+        endCount++;
+        if( bingo[15] == 0 && bingo[16] == 0 && bingo[17] == 0 && bingo[18] == 0 && bingo[19] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  }
+
+  else if( number >= 20 ){
+    if( number == 0 || number%6 == 0 ){
+      if( bingo[0] == 0 && bingo[6] == 0 && bingo[12] == 0 && bingo[18] == 0 && bingo[24] == 0 ){
+        endCount++;
+        if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+            endCount++;
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+          endCount++;
+          if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+            endCount++;
+          }
+        }
+      }  
+      else if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+        endCount++;
+        if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  
+    else if( number%4 == 0 ){
+      if( bingo[4] == 0 && bingo[8] == 0 && bingo[12] == 0 && bingo[16] == 0 && bingo[20] == 0 ){
+        endCount++;
+        if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+          endCount++;
+          if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+            endCount++;
+          }
+        }
+        else if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+          endCount++;
+          if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+            endCount++;
+          }
+        }
+      }
+      else if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+        endCount++;
+        if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  
+    else{
+      if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+        endCount++;
+        if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+          endCount++;
+        }
+      }
+      else if( bingo[number] == 0 && bingo[number-5] == 0 && bingo[number-10] == 0 && bingo[number-15] == 0 && bingo[number-20] == 0 ){
+        endCount++;
+        if( bingo[20] == 0 && bingo[21] == 0 && bingo[22] == 0 && bingo[23] == 0 && bingo[24] == 0 ){
+          endCount++;
+        }
+      }
+    }
+  }
+
+  $("#ok").text( endCount );
 }
 
 // 더 해보려면 빙고판을 하나 더 만들어서 컴퓨터와 1:1 ???
