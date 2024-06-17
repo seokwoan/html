@@ -53,32 +53,92 @@ $(document).keyup(function( event ){
   // w - 87 , a - 65 , s - 83 , d - 68
   var key = event.keyCode;
   //alert( typeof key); 데이터 타입확인 console.log( typeof key)로 더 많은 정보확인가능
+
+  board[y][x]=0;
+  $("td").eq(y*21+x).removeClass("me");
+  $("td").eq(y*21+x).addClass("blank"); // 현재 위치에 클래스명 blank로 변경
   switch(key){
-    case 87: 
-      board[y][x]=0;
-      $("td").eq(y*21+x).removeClass("me");
-      $("td").eq(y*21+x).addClass("blank"); // 현재 위치에 클래스명 blank로 변경
-      y--;
-      board[y][x]=2;
-      $("td").eq(y*21+x).removeClass("blank");
-      $("td").eq(y*21+x).addClass("me");
+    case 87 : if( board[y-1][x] != 1 ){
+        y--;
+        break;
+      } alert( "넌 못 지나간다" );
       break;
-
-    case 65 : 
-      board[y-1][x] = 2;
-      board[y][x] = 0;
+    case 65 : if( board[y][x-1] != 1 ){
+        x--;
+        break;
+      } alert( "넌 못 지나간다" );
       break;
-
-    case 83 : 
-      board[y-1][x] = 2;
-      board[y][x] = 0;
+    case 83 : if( board[y+1][x] != 1 ){
+        y++;
+        break;
+      } alert( "넌 못 지나간다" );
       break;
-
-     case 68 : 
-      board[y-1][x] = 2;
-      board[y][x] = 0;
-      break;  
+    case 68 : if( board[y][x+1] != 1 ){
+        x++;
+        break;
+      } alert( "넌 못 지나간다" );
+      break;
   }
+  board[y][x]=2;
+  $("td").eq(y*21+x).removeClass("blank");
+  $("td").eq(y*21+x).addClass("me");
+
+  // 압축전
+  // switch(key){
+  //   case 87: 
+  //     if( board[y-1][x] != 1){
+  //       board[y][x]=0;
+  //       $("td").eq(y*21+x).removeClass("me");
+  //       $("td").eq(y*21+x).addClass("blank"); // 현재 위치에 클래스명 blank로 변경
+  //       y--;
+  //       board[y][x]=2;
+  //       $("td").eq(y*21+x).removeClass("blank");
+  //       $("td").eq(y*21+x).addClass("me");
+  //     }
+  //     else{ alert( "넌 못 지나간다" ); }
+  //     break;
+
+  //   case 65 : 
+  //     if( board[y][x-1] != 1){
+  //       board[y][x]=0;
+  //       $("td").eq(y*21+x).removeClass("me");
+  //       $("td").eq(y*21+x).addClass("blank"); // 현재 위치에 클래스명 blank로 변경
+  //       x--;
+  //       board[y][x]=2;
+  //       $("td").eq(y*21+x).removeClass("blank");
+  //       $("td").eq(y*21+x).addClass("me");
+  //     }
+  //     else{ alert( "넌 못 지나간다" ); }  
+  //     break;
+
+  //   case 83 : 
+  //     if( board[y+1][x] != 1){
+  //       board[y][x]=0;
+  //       $("td").eq(y*21+x).removeClass("me");
+  //       $("td").eq(y*21+x).addClass("blank"); // 현재 위치에 클래스명 blank로 변경
+  //       y++;
+  //       board[y][x]=2;
+  //       $("td").eq(y*21+x).removeClass("blank");
+  //       $("td").eq(y*21+x).addClass("me");
+  //     }
+  //     else{ alert( "넌 못 지나간다" ); }
+  //     break;
+
+  //    case 68 : 
+  //     if( board[y][x+1] != 1){
+  //       board[y][x]=0;
+  //       $("td").eq(y*21+x).removeClass("me");
+  //       $("td").eq(y*21+x).addClass("blank"); // 현재 위치에 클래스명 blank로 변경
+  //       x++;
+  //       board[y][x]=2;
+  //       $("td").eq(y*21+x).removeClass("blank");
+  //       $("td").eq(y*21+x).addClass("me");
+  //     }  
+  //     else{ alert( "넌 못 지나간다" ); }
+  //     break;  
+  // }
+  // 압축전
+
 });
 
 // 숙제 4방향 다 움직이고 가장자리의 벽을 못 뚫게 하기
