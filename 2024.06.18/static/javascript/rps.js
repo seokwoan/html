@@ -6,6 +6,10 @@ let comSelect = 0; // 컴퓨터 가위바위보 값
 
 $(function(){ // window.onload
 
+
+  // 전적 배열 초기화 세팅
+  record = [ new Array(), new Array(), new Array() ];
+  //            유저          컴           결과
   $("#comImg").attr('src' , './static/image/'+com[0] );
 
   $("#game").click( startAndStop );
@@ -51,25 +55,33 @@ function userSelect(){
   outCom( idx , comSelect);
   // 결과 띄우기 (승, 패, 무)
 
-  comStart();
-  // 다시 컴푸터 가위바위보 이미지 변경 되게( setInterval)
+  //$(".rpsImg").css( 'z-index' , -1 );
+  $(".userImg").off('click');
 
-  $(this).css( 'border' , '' );
-  // $(this)/removeAttr('style'); -> jquery로 추가한 모든 스타일이 제거됨
-  // 내가 클릭한 가위바위보 이미지 표시 해제
+  setTimeout( function(){
+    comStart();
+    // 다시 컴푸터 가위바위보 이미지 변경 되게( setInterval)
+
+    $(".userImg").eq(idx).css( 'border' , '' );
+    // $(this)/removeAttr('style'); -> jquery로 추가한 모든 스타일이 제거됨
+    // 내가 클릭한 가위바위보 이미지 표시 해제
+    $(".result").remove();
+
+    //$(".rpsImg").css( 'z-index' , 2 );
+    $(".userImg").click( userSelect );
+    
+  }, 3000 ); // 지정된 시간 이후에 한번 실행
 }
-
+// 대기시간동안 클릭 안되게 하기 ? 
 function outCom( u , c ){
   // 0 가위 , 1 바위 , 2보자기
   var result = "승";
   var winner = u - c;
-  if( winner == -1){
+  if( winner == -1 || winner == 2){
     result = "패";
   }
   else if( winner == 0 ){
     result = "무";
-  }
-  else if( winner == -2 ){
   }
 
   // 유저와 컴퓨터 가위바위보 비교하여 승 패 무 출력 되게 하세요
