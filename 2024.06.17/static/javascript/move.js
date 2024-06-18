@@ -54,31 +54,65 @@ $(document).keyup(function( event ){
   var key = event.keyCode;
   //alert( typeof key); 데이터 타입확인 console.log( typeof key)로 더 많은 정보확인가능
 
+  var stepx = x;
+  var stepy = y; // 이동할 위치 표현변수
+
   board[y][x]=0;
   $("td").eq(y*21+x).removeClass("me");
   $("td").eq(y*21+x).addClass("blank"); // 현재 위치에 클래스명 blank로 변경
+  
+  
+  // switch(key){
+  //   case 87 : 
+  //     if( board[y-1][x] != 1 ){
+  //       y--;
+  //       break;
+  //     } 
+  //     alert( "넌 못 지나간다" );
+  //     break;
+  //   case 65 : 
+  //     if( board[y][x-1] != 1 ){
+  //       x--;
+  //       break;
+  //     } 
+  //     alert( "넌 못 지나간다" );
+  //     break;
+  //   case 83 : 
+  //     if( board[y+1][x] != 1 ){
+  //       y++;
+  //       break;
+  //     } 
+  //     alert( "넌 못 지나간다" );
+  //     break;
+  //   case 68 : 
+  //     if( board[y][x+1] != 1 ){
+  //       x++;
+  //       break;
+  //     } 
+  //     alert( "넌 못 지나간다" );
+  //     break;
+  // }
+
   switch(key){
-    case 87 : if( board[y-1][x] != 1 ){
-        y--;
+    case 87 : 
+        stepy--;
         break;
-      } alert( "넌 못 지나간다" );
-      break;
-    case 65 : if( board[y][x-1] != 1 ){
-        x--;
+    case 65 : 
+        stepx--;
         break;
-      } alert( "넌 못 지나간다" );
-      break;
-    case 83 : if( board[y+1][x] != 1 ){
-        y++;
+    case 83 : 
+        stepy++;
         break;
-      } alert( "넌 못 지나간다" );
-      break;
-    case 68 : if( board[y][x+1] != 1 ){
-        x++;
+    case 68 : 
+        stepx++;
         break;
-      } alert( "넌 못 지나간다" );
-      break;
   }
+
+  if( board[stepy][stepx] != 1 ){
+    x = stepx;
+    y = stepy;
+  }
+
   board[y][x]=2;
   $("td").eq(y*21+x).removeClass("blank");
   $("td").eq(y*21+x).addClass("me");
