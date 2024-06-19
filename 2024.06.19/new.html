@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+
+  <script>
+
+    window.onload = function(){
+
+    }
+
+    // 사용자 객체 생성( 개발자가 직접 만든 객체 )
+    let 학생 =  { name : "이순신" , age : 34 , addr : "여수" }  // 개발자가 직접 만들어낸 객체
+    // 만들어진 객체가 저장될 변수가 필요하다. 참조변수라고 함
+    // key와 value로 만들어둠 key의 이름은 중복이 없어야함 { key : value , key : value} key의 값을 여러개 사용가능
+    // 만들어진 객체에 귀속되어 그 객체에서만 사용 가능
+    // 객체의 이름을 만들면 하나의 참조변수로 여러개의 변수 처리 가능
+    console.log( 학생 );
+    console.log( 학생.name );
+    console.log( 학생.addr);
+
+    // 객체 생성 방법 2
+    // 생성자 함수를 통해 객체 생성
+    // 함수를 만들어 주고
+    // 새로운 변수를 만들고 -> 변수 = new 함수이름();  함수를 호출해서 생성을 완료해줌
+    /*
+    function book(){ // 객체에 저장할 내용을 대표하는 이름을 
+      this.title = "자바";
+      this.author = "홍길동";
+      this.year = "2024"
+      // this는 객체를 의미 this.(key) = "(value)";의 형태
+    }
+    */
+
+
+    function book( x , y , z ){ // 객체에 저장할 내용을 대표하는 이름을 정해줌 매개변수를
+      this.title = x;
+      this.author = y;
+      this.year = z;
+    } // 매개변수를 통해 객체를 많이 만들어낼수있음
+    
+
+    book1 = new book( "자바" , "홍길동" , 2024 ); // 생성자 함수를 통해 객체 생성 방법 new 연산자로 새로운 객체 만들어줌
+    book2 = new book( "html" , "김유신" , 2010 );
+
+    console.log(book1);
+    console.log(book1.title);
+    console.log(book2.year);
+
+    // 영화 - 영화제목, 감독, 장르에 대해 저장할 수 있는 생성자함수와 객체 2개를 만드세요
+
+    function movie( name, director, genre ){
+      this.movieTitle = name;
+      this.director = director;
+      this.genre = genre;
+    }
+
+    movie1 = new movie( "범죄도시4" , "허명행" , "액션");
+    movie2 = new movie( "서울의봄" , "김성수" , "느와르");
+
+    console.log( movie1.movieTitle );
+
+
+    
+  </script>
+    
+
+
+</head>
+
+<body>
+  
+  <!-- w3c markup을 이용하면 예약어( 정해진 언어 )에 대한 오타 검사가 가능-->
+
+  <div id="box" class="area" onmouseover="javascript:alert('마우스왔다');">
+  <!-- 자바스크립트 바로 실행 가능 -->
+    나는 div이다. 
+  </div>
+
+
+
+</body>
+
+
+</html>
+
+<script>
+
+    let d = document.getElementById("box");
+    console.log(d);
+
+    // 객체에서 .은 접근연산자이다. 
+    document.write( d.innerHTML );
+    document.write( d.id );
+    document.write( d.localName );
+    let div = document.querySelector("#box");
+    console.log(div);
+    
+    let box = $("#box");
+    console.log(box);
+  
+
+</script>
