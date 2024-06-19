@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>json_data</title>
+
+  
+  <script>
+
+    // let student = { name : "이순신" , age : 19 , tall : 172 };
+    // document.write( student.name);
+
+    // 모든 프로그램 언어는 문자열을 이용한다.
+    // 자바스크립트의 객체를 문자열로 변경해 보낸다.
+
+    // JSON.stringify -> 자바스크립트 객체를 문자열로 변환
+    // JSON.parse -> 문자열을 자바스크립트 객체로 변환 
+
+    // let str = JSON.stringify( student );
+    // document.write( "<br>" + str );
+
+    // let std = JSON.parse( str );
+    // document.write( "<br>" + std );
+
+    // 외부 파일을 가져오려면 xml의 도움이 있어야한다.
+    // xml은 서버에서 작동이 가능함
+    const xml = new XMLHttpRequest(); // xml을 이용해 서버에 요청
+    // xml.open( " 방식 " , " 주소 " ); 
+    // xml 에서 자료를 가져오는 방식은 GET, POST 2가지 방법이 많이 쓰임
+    xml.onload=function(){
+      var std = JSON.parse( this.responseText );
+      view(std);
+      // document.write( std[2].tall );
+    };
+    xml.open( "GET" , "sigu.json" );
+    // GET은 있는 문자열을 있는 그대로 사용 값이 보임
+    xml.send();
+    // 서버에 데이터를 보낼때 
+    // open을 사용하면 보낼 값이 없어도 써야함
+
+    // 대전광역시 중구의 광역시 코드와 시군구 코드를 출력하세요
+    function view(std){
+        for( var i = 0 ; i < std.length ; i++){
+          if( std[i].법정동명.indexOf("대전광역시 중구") == 0 ){
+            //                  (" 대전광역시 != -1 ")로 대전광역시를 찾고
+            //                  (" 중구 != -1 ") 대전광역시와 중구를 포함하는 값을 찾음
+            document.write( std[i].법정동명 + " " + std[i].광역시도코드 + " " + std[i].시군구코드 + "<br>" );
+          }  
+        }
+
+    }
+
+  </script>
+
+
+</head>
+
+
+<body>
+
+  
+
+</body>
+
+
+</html>
