@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>json_data2</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script>
+
+    /*
+      자바스크립트 객체
+      객체는 데이터(속성)과 함수(기능)으로 구성되어있다.
+      내장 객체로는 Array, Math, Number, Document, WIndow 등등 있다.
+      
+      사용자 정의 객체
+      { name : "이순신" , age : 19 } 객체리터럴  생성 방법 즉시 객체를 만들어주고 key와 value값이 저장
+      function book( title, aut, pyear ){
+        this.title = title;
+        this.aut = aut;
+        this.pyear = pyear;
+      }
+
+      자바스크립트에서 객체는 key : value의 구조로 속성(데이터)를 정의한다. 
+      하나의 객체 안에서 key는 중복되면 안된다. 다른 객체에 같은 이름의 key는 존재 가능
+      이름, 문자열, 숫자로 키를 정의할 수 있다.
+      변수이름처럼 이름으로 정의하는게 좋다.
+      value는 중복가능, 숫자, 문자열, 배열, 객체, 함수 
+
+      let people = { name : "이순신" , age : 19 };
+      people.name -> 이순신
+      people.age -> 19
+      people[name] -> 이순신
+      people[age] -> 19
+
+      json - javascript objecct notation
+      웹에서 사용할 데이터를 경량으로 표현하기 위해 사용한다.
+      자바스크립트 객체를 문자열로 변환시켜준 것이다.
+
+      let people = { name : "이순신" , age : 19 };
+      people을 json으로 변환하면
+      "{ "name" : "이순신" , "age" : 19 }" 데이터를 전부 문자열로 표시
+      객체를 json으로 변환하는 방법은 JSON.stringify(people);
+
+      json을 객체로 변환하는 방법은 JSON.parse( json값 );
+
+    */
+
+    // 종량제봉투판매소정보가 key, value값은 배열로 들어있음?
+    // "종량제봉투판매소정보": [ 
+    //     {
+    //         "동선택": "조치원",
+    //         "지정판매소명": "목화슈퍼",
+    //         "도로명 주소": "조치원읍 새내17길 7",
+    //         "판매소 전화번호": "044-865-6612"
+    //     },
+    // value에 필요한 객체들이 있다. 
+
+    $(function(){
+      const xml = new XMLHttpRequest();
+      xml.onload=function(){ // json파일 모두 열기 되면 실행
+        var data = this.responseText; // json파일의 내용을 가져와서 data에 저장, 문자열로 저장되어있다. 
+        data = JSON.parse(data); // json을 자바스크립트 객체로 변환하여 data에 저장
+        console.log( data.종량제봉투판매소정보 );
+        output( data.종량제봉투판매소정보 );
+      }
+      xml.open( 'GET' , '종량제봉투.json');
+
+      xml.send();
+
+      $("#search").on( 'keyup' , search );
+
+    });
+
+    function search(){ // search함수에서의 this는 input#search 이다. 
+      var value = $(this).val();
+      $("#dataField tr").filter( function(){
+        $(this).toggle( $(this).text().indexOf(value) != -1 ); // toggle(true); -> show()동작 , (false) -> hide()동작
+      } );
+    }
+    
+    function output(data){
+      // data매개변수는 배열이다. 배열안에 객체들이 있다.
+      for( var i = 0 ; i < data.length ; i++){
+        $("#dataField").append( `
+          <tr>
+            <td>${data[i].동선택}</td>
+            <td>${data[i].지정판매소명}</td>
+            <td>${data[i]['도로명 주소']}</td>
+            <td>${data[i]['판매소 전화번호']}</td>
+          </tr>
+        `); // 값을 대괄호로 불러올때 따옴표 안에 넣으면 띄어쓰기 가능
+      }
+    }
+
+  </script>
+
+
+
+</head>
+
+
+<body>
+
+  <div id="wrap">
+    <div class="inputBox">
+      <input type="text" id="search" placeholder="검색어를 입력하세요.">
+    </div>
+    <div id="dataList">
+      <table id="dataTable">
+        <thead class="dataHead">
+          <tr>
+            <th class="동">동</th>
+            <th class="판매소명">판매소명</th>
+            <th class="주소">주소</th>
+            <th class="전화번호">전화번호</th>
+          </tr>
+        </thead>
+        <tbody id="dataField"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <style>
+    #wrap{
+      width : 1000px;
+      margin : 50px auto;
+    }
+
+    .inputBox{
+      padding : 10px 0;
+    }
+
+    #search{
+      width : 300px;
+      font-size : 25px;
+      padding : 10px;
+      border : 2px soild #aaa;
+      border-radius : 10px;
+    }
+
+    #dataList{
+      padding : 15px 0; 
+      border-top : 1px solid #aaa;
+    }
+
+    #dataTable{
+      width : 100%;
+      border-collapse : collaps;
+    }
+
+    .동{
+       width : 15%;
+    }
+
+    .판매소명{
+      width  : 35%;
+    }
+
+    .주소{
+      width : 30%;
+    }
+
+    .전화번호{
+      width : 20%;
+    }
+
+    #dataField td{
+      line-height : 40px ;
+      font-size : 18px;
+      text-align : center;
+    }
+
+  </style>
+
+  
+</body>
+
+
+</html>

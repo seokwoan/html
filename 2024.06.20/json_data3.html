@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>json_data3</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script>
+
+    /*
+    폭염.json 파일의 내용 자바스크립트로 가져와서
+    브라우저 화면에 출력하기
+    이쁘고 깔끔하고 심플하게
+    */
+
+    window.onload=function(){
+      const xml = new XMLHttpRequest();
+      xml.onload=function(){
+
+        var hot = this.responseText;
+        var data = JSON.parse(hot);
+        console.log(hot);
+      }
+      xml.open( 'GET' , '폭염.json');
+
+      xml.send();
+    }  
+
+
+
+  </script>
+
+
+</head>
+
+
+<body>
+
+  <div id="wrap">
+    <div id="title"><h1>폭염정보</h1></div>
+    <div id="main">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>연도</th>
+            <th>서울</th>
+            <th>강릉</th>
+            <th>대전</th>
+            <th>대구</th>
+            <th>광주</th>
+            <th>부산</th>
+            <th>전국 평균</th>
+          </tr>
+        </thead>
+        <tbody class="dataArea">
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+</body>
+
+<style>
+  
+</style>
+
+
+</html>
