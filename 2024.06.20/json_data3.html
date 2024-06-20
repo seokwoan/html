@@ -21,12 +21,55 @@
 
         var hot = this.responseText;
         var data = JSON.parse(hot);
-        console.log(hot);
+        console.log(data);
+
+        print(data);
+
+        var lineColor = $(".line");
+        console.log(lineColor);
+        
+        color(lineColor);
+
       }
       xml.open( 'GET' , '폭염.json');
 
       xml.send();
+
     }  
+
+    function print( data ){
+      for( var i = 0 ; i < data.length ; i++){
+        $(".dataArea").append(`
+          <tr class="line">
+            <td>${data[i].연도별}</td>
+            <td>${data[i]["서울(일)"]}</td>
+            <td>${data[i]["강릉(일)"]}</td>
+            <td>${data[i]["대전(일)"]}</td>
+            <td>${data[i]["대구(일)"]}</td>
+            <td>${data[i]["광주(일)"]}</td>
+            <td>${data[i]["부산(일)"]}</td>
+            <td>${data[i]["전국일평균(일)"]}</td>
+          </tr>
+        
+        `)
+      }
+    }
+
+    function color( data ){
+      for( var i = 0 ; i < data.length ; i++){
+        switch( i%3 ){
+          case 0 :
+            data.eq(i).css( 'background' ,  'skyblue' );
+            break;
+          case 1 :
+            data.eq(i).css( 'background' ,  '#D1FFAB' );
+            break;
+          case 2 : 
+            data.eq(i).css( 'background' ,  '#FFFFDF' );
+            break;
+        }
+      }
+    }
 
 
 
@@ -39,8 +82,8 @@
 <body>
 
   <div id="wrap">
-    <div id="title"><h1>폭염정보</h1></div>
-    <div id="main">
+    <div id="title" class="textdata"><h1>년도별 폭염 발생 현황</h1></div>
+    <div id="main" class="textdata">
       <table id="dataTable">
         <thead>
           <tr>
@@ -55,7 +98,6 @@
           </tr>
         </thead>
         <tbody class="dataArea">
-
         </tbody>
       </table>
     </div>
@@ -66,7 +108,42 @@
 </body>
 
 <style>
-  
+
+*{
+  margin : 0;
+  padding : 0;
+  box-sizing : border-box;
+}
+
+.textdata{
+  width : 800px;;
+  margin : 0 auto;
+  text-align : center;
+  padding : 10px;
+}
+
+#dataTable{
+  border-collapse : collapse;
+  border : 1px solid black;
+  border-radius : 10px;
+  overflow : hidden;
+}
+
+#dataTable th{
+  width : 10%;
+  border : 1px solid black;
+  font-size : 20px;
+  line-height : 30px;
+  padding : 7px 3px;
+}
+
+.dataArea td{
+  border : 1px solid black;
+  font-size : 18px;
+  line-height : 40px;
+}
+
+
 </style>
 
 

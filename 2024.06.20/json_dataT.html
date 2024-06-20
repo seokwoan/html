@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script>
+
+    $(function(){
+      // $("#day").on( 'change' , heatFilter );
+      // $("#location").on( 'change' , heatFilter );
+
+      $("#more").on( 'click' , heatFilter );
+      $("#less").on( 'click' , heatFilter );
+    });
+
+    function moreFunc(a,b){
+      return a>=b;
+    }
+    function lessFunc(a,b){
+      return a<=b;
+    }
+
+    function heatFilter(){
+      var func = moreFunc;
+      // 함수의 이름을 변수에 저장하여 함수호출가능
+      // 함수의 이름은 메모리 주소이고 
+      // 함수호출은 메모리주소를 통해 실행시키기 때문에 변수에 담아서 호출하는게 가능
+      // 익명함수를 호출가능한 언어에서 사용가능
+      if($(this).text() === "이하") func = lessFunc;
+
+
+      var value = $("#day").val();
+      var loc = $("#location").val();
+      if( value != 0 ){
+        let li = $("#list li");
+        loc = Number(loc); // 서울 선택시 loc에s는 2저장, 대전은 loc에 4저장
+        for( var i = loc-1 ; i < li.length; i = i + 8 ){
+          if( func( Number(li.eq(i).text()) , Number(value) ) ){
+            // 변수를 통해 함수를 호출함 func(a,b) -> 로 매개변수도 사용가능
+            // 연산자는 데이터가 아니라 변수에 저장되지 않음
+            for( var k = i-(loc-1) ; k <= i+8-loc ; k++){ // 선택한 지역이 조건에 맞이 않으면
+              li.eq(k).toggle(true);                     // 해당 줄의 전체 li태그 감추기
+            }
+          }
+          else{
+            for( var k = i-(loc-1) ; k <= i+8-loc ; k++){ 
+            li.eq(k).toggle(false);                          
+            }
+          }
+        }
+
+      }
+      // $("#list li")filter(function(){
+      //   $(this).toggle( $(this).text().indexOf( value) );
+      // });  
+    }
+
+    /*
+    이상 or 이하를 누르면 
+    func에 함수 저장 - 누른 값에따라 변경
+
+
+    day의 value를 가져옴
+    location의 value를 가져옴
+    day의 값이 0이 아니면
+    li태그를 전부 가져옴
+    location의 value를 숫자로 만들어줌
+
+    i = loc-1 -> 배열의 지역 인덱스 (value를 2부터 시작해서)
+    선택한 지역값을 얻음
+    증감식은 li라 맞추기 위해 만듬
+    증감식 i = i+8 -> index가 8개니까 서울의 다음의 값을 구하려면 +8
+    선택한 지역값과 입력한 day의 값이
+    이상 or 이하일때
+    이상이면 지역값이 day값 보다 클때
+    li라인의 toggle이 true
+    작은 li라인은
+    false
+
+    이하면 작을때
+    true
+    클대 
+    false
+
+    선택한 지역의 폭염일을 구해옴
+    구해온 폭염 일의 값이 day의 값과 다르다면 
+
+    k = i-(loc-1 지역값) -> 0이 나와서 연도별부터 
+    k <= i+8-loc -> 8이 나옴 
+    한줄 전체의 li의 toggle을 false로 만들어줌
+    값과 같으면 toggle값이 true가 됨
+    */
+
+    $.getJSON( "폭염.json" , function(data){ // getJSON을 사용하면 JSON.parse까지 해줌 
+      show(data);
+
+      //search(data);
+    });
+
+    function show(data){
+      for( var i = 0 ; i < data.length ; i++){
+        $("#list").append(`
+          <li>${data[i].연도별}</li>
+          <li>${data[i]['서울(일)']}</li>
+          <li>${data[i]['강릉(일)']}</li>
+          <li>${data[i]['대전(일)']}</li>
+          <li>${data[i]['대구(일)']}</li>
+          <li>${data[i]['광주(일)']}</li>
+          <li>${data[i]['부산(일)']}</li>
+          <li>${data[i]['전국일평균(일)']}</li>
+        `)
+      }
+    }
+
+    console.log($("#day").val());
+
+
+  </script>
+
+
+  <style>
+    h3{ height : 40px; border-bottom : 1px solid #aaa;}
+    h3 b{font-size : 20px; display : inline-block; width : 100px; text-align : center;}
+    #list{ display : flex; flex-wrap : wrap; width : 800px; padding : 0; margin : 0; list-style : none; }
+    #list>li{ width : 100px; text-align : center; line-height : 40px;}
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <div id="filter">
+    <select id="location">
+      <option value="0">전국</option>
+      <option value="2">서울</option>
+      <option value="3">강릉</option>
+      <option value="4">대전</option>
+      <option value="5">대구</option>
+      <option value="6">광주</option>
+      <option value="7">부산</option>
+    </select>
+    <input type="number" id="day" value="0" style="width:40px; padding-left:10px;">일
+    <button id="more">이상</button>
+    <button id="less">이하</button>
+  </div>
+
+
+  <h3><b>연도별</b><b>서울</b><b>강릉</b><b>대전</b><b>대구</b><b>광주</b><b>부산</b><b>전국평균</b></h3>
+  <ul id="list"></ul>
+
+
+
+  
+</body>
+
+
+</html>
