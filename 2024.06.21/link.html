@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>link</title>
+
+  <script>
+
+    // 자바스크립트의 내장객체 
+    // 브라우저에서의 최상위 객체 window
+
+    function move(){ 
+      setTimeout( function(){
+        location.href="https://www.naver.com";
+      } , 3000);
+    }
+
+
+  </script>
+
+
+
+
+</head>
+
+
+
+<body>
+
+  <a href="javascript:move();">3초 뒤에 네이버 이동</a>
+  <!-- a태그는 클릭이벤트 없이 자바스크립트를 실행시킬수 있다.
+   태그에서 자바스크립트를 불러오는 하나뿐인 방법 -->
+
+  <!-- 
+  web 데이터 전달 방식 : GET, POST, DELETE, PUT, PATCH, TRACE, HEAD, OPTIONS, CONNECT
+
+  GET - 전달 하는 값을 있는 그대로 전달, 파라미터(쿼리)
+  쿼리 스트링 : name=이순신&age=19
+  http://www.naver.com/?name=이순신&age=19  
+  주소에 직접 데이터를 붙여서 보내는게 GET방식
+    - 브라우저 히스토리(방문기록)에 저장된다. 
+    - 데이터를 요청하거나 페이지를 요청 할때 사용된다.
+  
+  
+  -->
+  <a href="https://www.naver.com">네이버</a>
+  <a href="https://comic.naver.com/webtoon/list?titleId=777767&tab=fri">네이버웹툰</a>
+    <!-- 주소의 ? 뒷부분은 쿼리스트링으로 요청하는 값다. 파라미터는 데이터가 아니다. -->
+     <!-- a태그는 요청하는 태그 데이터 전달태그가 아님-->
+
+
+
+  <div id="movie" style="height:1000px;">
+    <a href="#movie">영화</a>
+    <!-- a태그를 이용해 자바스크립트를 이용하지 않고
+     페이지 내에서 이동이 가능하다. href에 이동하고자하는 위치의
+     아이디를 통해 이동 -->
+    <a href="#webtoon">웹툰</a>
+    <a href="#game">게임</a>
+    <h2>여기는 영화</h2>
+  </div>
+
+  <div id="webtoon" style="height:1000px;">
+    <a href="#movie">영화</a>
+    <a href="#webtoon">웹툰</a>
+    <a href="#game">게임</a>
+    <h2>여기는 웹툰</h2>
+  </div>
+
+  <div id="game" style="height:1000px;">
+    <a href="#movie">영화</a>
+    <a href="#webtoon">웹툰</a>
+    <a href="#game">게임</a>
+    <h2>여기는 게임</h2>
+  </div>
+
+  
+</body>
+
+
+</html>
