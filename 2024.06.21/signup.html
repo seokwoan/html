@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>signup</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script src="./static/javascript/signup.js"></script>
+  
+  <link rel="stylesheet" href="./static/css/signup.css">
+
+
+</head>
+
+
+<body>
+  
+  <div id="wrap">
+    <h2 id="pageTitle">회원가입</h2>
+    <form id="signupForm" method="GET" action="./signupComplete.html">
+      <fieldset class="fd">
+        <legend>필수입력</legend>
+        <fieldset id="essential" class="signupField">
+          <div class="inputField">
+            <label for="userId">아이디</label>
+            <!-- label에서 for의 역할은 for에 들어간 id를 가진 input을
+             활성화 해줌, input type radio, checkbox에서도 텍슽트를 누르면
+             선택되게 해주는 역할-->
+            <input type="" name="userId" id="userId" maxlength="20" minlength="6" placeholder="아이디는 6자이상 20자이하"> 
+            <!-- input 태그에 name이 없으면 데이터 전달이 안됨
+             input 태그의 name이 파라미터가 됨
+             name과 id는 같게 만들어줘야 작업하기 편함
+             form태그안에 input태그가 있으면 maxlength, minlength 를 통해 글자수 제한을 걸수있음-->
+          </div>
+
+          <div class="inputField">
+            <label for="userPw">비밀번호</label>
+            <input type="password" name="userPw" id="userPw">
+          </div>
+
+          <div class="inputField">
+            <label for="pwRe">비밀번호확인</label>
+            <input type="password" id="pwRe">
+            <!-- 서버에 넘겨주지 않는 데이터라 name 없음 -->
+          </div>
+          
+          <div class="inputField">
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="email">
+          </div>
+
+          <div class="inputField">
+            <label for="tel">연락처</label>
+            <input type="text" name="tel" id="tel">
+          </div>
+
+          <div class="inputField">
+            <label for="addr">주소</label>
+            <input type="text" name="addr" id="addr">
+          </div>
+        
+        </fieldset>  
+
+      </fieldset>
+
+      <fieldset class="fd">
+        <legend>선택입력</legend>
+          <div id="choice" class="signupField">
+            <div>
+              <h3>관심분야</h3>
+              <div class="interest">
+                <p><input type="checkbox" name="interest" value="game">게임</p>
+                <p><input type="checkbox" name="interest" value="movie">영화</p>
+                <p><input type="checkbox" name="interest" value="drama">드라마</p>
+                <p><input type="checkbox" name="interest" value="programing">프로그래밍</p>
+                <p><input type="checkbox" name="interest" value="book">독서</p>
+                <p><input type="checkbox" name="interest" value="walk">산책</p>
+                <p><input type="checkbox" name="interest" value="meditation">명상</p>
+                <p><input type="checkbox" name="interest" value="stock">주식</p>
+                <p><input type="checkbox" name="interest" value="shop">쇼핑</p>
+                <p><input type="checkbox" name="interest" value="exercise">운동</p>
+              </div>
+            </div>
+
+            <div style="width:100%;">
+              <h3>직업</h3>
+              <div class="jobList">
+                <input type="radio" name="job" value="학생">학생
+                <input type="radio" name="job" value="법조인">법조인
+                <input type="radio" name="job" value="대통령">대통령
+                <input type="radio" name="job" value="프로그래머">개발자
+              </div>
+            </div>
+
+            <div style="width:100%;">
+              <h3>나와 닮은연예인</h3>
+              <input type="file" id="portrait">
+              <div id="preview"></div>
+            </div>
+
+          </div>
+
+      </fieldset>
+
+      <div id="signupButton">
+        <button type="button" id="signup">회원가입</button>
+        <!-- button의 타입을 바꿔 눌러서 바로 전송이 안되도록 만듬
+         자바스크립트로 체크하기 위해 자
+         바스크립트가 아니어도 체크 가능
+         button이 submit일때 input 태그에 required를 넣으면 체크함
+         html submit의 기능으로는 이메일이나 연락처의 형식만 맞으면 통과해서
+         상세한 확인을 하기 위해서는 자바스크립트를 이용 -->
+      </div>
+    </form>
+  </div>
+
+  
+
+</body>
+
+
+
+</html>

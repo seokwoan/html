@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form1</title>
+
+
+
+
+
+  
+</head>
+
+
+
+<body>
+
+  <!-- form 태그는 데이터 전달을 위한 태그
+   form태그안의 input태그의 데이터를 전달함 form으로 데이터를 전달하려면 input태그가 있어야함 -->
+  <form metohd="GET" action="https://www.a.com/save.html" enctype="multipart/form-data">
+    <input type="text"> <!-- text : texxt(엉여, 숫자, 한글등등) 입력필드-->
+    <br>
+    <input type="password"> <!-- password : 입력한 텍스트를 숨겨주는 비밀번호 필드-->
+    <br>
+    <input type="radio" name="gender" value="남자">남자 <input type="radio" name="gender"> 여자
+    <!-- radio : 그룹을 설정하여 하나만 선택할 수 있다. name으로 그룹지정-->
+    <br>
+    <input type="checkbox" name="hob">영화 <input type="checkbox" name="hob">게임
+    <input type="checkbox" name="int">주식 <input type="checkbox" name="int">음악
+    <!-- 다중 선택이 가능하다. name으로 그룹설정을 안해도 되지만 묶어두는게 좋다-->
+    <br>
+    <input type="color"> <!-- 색을 선택 -->
+    <br>
+    <input type="date"> <!-- 날짜 선택 년, 월, 일 -->
+    <br>
+    <input type="datetime-local"> <!-- 년, 월, 일, 시, 분 선택 -->
+    <br>
+    <input type="time"> <!-- 시간 선택( 시, 분 )-->
+    <br>
+    <input type="month"> <!-- 년, 월 -->
+    <br>
+    <input type="email"> 
+    <!-- 이메일 입력 필드, 브라우저에서 기본형식 검증 이메일 형식이 아니면 알림-->
+    <br>
+    <input type="number" min="1" max="20" step="4"> <!-- 숫자 입력 필드, 값의 범위 단계 지정 가능-->
+    <!-- min - 최소값, max - 최대값, step - 증가값 (배수여야? min + step*n ) 
+     최소 - 최대값과 증가값을 범위에 있지 않으면 알림-->
+    <br>
+    <input type="search"> <!-- 검색필드 -->
+    <br>
+    <input type="tel"> <!-- 전화번호 입력 필드-->
+    <br>
+    <input type="week"> <!-- 년과 주를 선택-->
+    <br>
+    <input type="file"> <!-- 파일업로드 필드-->
+    <br>
+    <input type="image" src=""> 
+    <!-- 이미지를 클릭하여 제출 button과 같은 역할 -->
+    <br>
+    <input type="url"> 
+    <!-- 주소입력 필드 url형식 검증 https://www.xxxx.com-->
+    <br>
+    <input type="range" min="10" max="20" step="5">
+    <!-- min - 최소값, max - 최대값, step - 증가값 -->
+    <br>
+    <input type="hidden" value="이순신"> 
+    <!-- 화면에 표시 안됨 
+     value를 가짐 다음 페이지에서 사용될 value를 저장하는 용도로 사용가능
+    -->
+
+    <button type="submit">전송</button>
+    <!-- form태그 안에 button이 있으면 데이터를 전송하는 기능이 실행됨
+     form태그 밖에 있으면 모양만 가진 태그 -->
+
+    <input type="submit" value="가입">
+    <button type="button">그냥버튼</button>
+     <!-- button의 타입을 button으로 바꾸면 아무런 기능이 없는 버튼이됨-->
+    <button type="reset">폼 초기화</button>
+    <!-- reset은 form태그의 기능 누르면 form태그의 모든 값이 리셋됨-->
+    <input type="button" value="나도버튼">
+    <input type="reset" value="나도 초기화">
+    <!-- <input type="cancle" value="취소"> 현재는 없음 -->
+
+    <textArea rows="10" cols="50"></textArea>
+    <!-- rows와 cols로 초기 크기를 정할수 있음 -->
+  </form>
+
+  <!--
+    form - 데이터를 전송하기위한 태그
+    속성 (action과 method는 필수)
+      - action : form 데이터를 전송할 주소 지정
+      - method : form 데이터를 전송할 방법 GET, POST
+      - target : form 데이터를 전송후에 
+                새창에서 열것인가 아니면 현재 페이지를 변경할것인가 
+      - enctype : form 데이터의 인코딩 유형 지정
+                  파일 업로드시 multipart/form-data 사용
+                  application/x-www-form-urlencoded - 기본값
+                  없으면 업로드 불가
+      - autocomplete : form 내부 자동완성 기능 켜기 ( on, off )
+                      단어의 자동완성이 아니라 이전 사용 단어 불러오기 
+    
+    데이터 전송 - submit()을 작동할 button이 필요함 기본값으로 가지고있음
+                input 태그의 타입을 submit으로 바꾸면 버튼처럼 사용가능
+
+
+  -->
+
+  
+
+
+</body>
+
+
+
+</html>
