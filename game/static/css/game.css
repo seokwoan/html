@@ -1,0 +1,53 @@
+*{
+  margin : 0;
+  padding : 0;
+  box-sizing : border-box;
+}
+
+#cardWrap{
+  margin : 0 auto;
+  width : 1000px;
+}
+
+#cardGame{
+  width : 100%;
+  height: 800px;
+  background : blue;
+  display : flex;
+  flex-wrap : wrap;
+  justify-content : center;
+  align-items : center;
+}
+
+#cardGame .cardBox{
+  width : 200px;
+  height : 200px;
+  display : none;
+}
+
+#cardGame .cardBox img{
+  width : 100%;
+  height : 100%;
+}
+
+#menu{
+  position : fixed;
+  top : 70px;
+  left : 120px;
+  width : 100px;
+  display : flex;
+  flex-direction : column;
+  justify-content : center;
+  align-items : center;
+}
+
+#timer{
+  width : 70px;
+  padding : 5px;
+  text-align : center;
+}
+
+#startB{
+  width : 70px;
+  padding : 5px;
+}
