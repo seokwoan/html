@@ -17,17 +17,35 @@
   flex-wrap : wrap;
   justify-content : center;
   align-items : center;
+  column-gap : 20px;
 }
 
 #cardGame .cardBox{
+  position : relative;
   width : 200px;
   height : 200px;
-  display : none;
 }
 
 #cardGame .cardBox img{
   width : 100%;
   height : 100%;
+}
+
+#cardGame .cardBox .reverse{
+  width : 100%;
+  height : 100%;
+  z-index : 2;
+  position : absolute;
+  top : 0;
+  left : 0;
+}
+#cardGame .cardBox .open{
+  width : 100%;
+  height : 100%;
+  display : none;
+  position : absolute;
+  top : 0;
+  left : 0;
 }
 
 #menu{

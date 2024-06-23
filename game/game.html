@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CARDGAME</title>
 
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="./static/css/game.css">
 
   <script src="./static/javascript/game.js"></script>
@@ -16,18 +18,32 @@
   <div id="wrap">
     <div id="cardWrap">
       <div id="cardGame">
-        <div class="cardBox"><img src="./static/image/diamond1.png" alt="diamond1"></div>
-        <div class="cardBox"><img src="./static/image/spade1.png" alt="spade1"></div>
-        <div class="cardBox"><img src="./static/image/diamond1.png" alt="diamond1"></div>
-        <div class="cardBox"><img src="./static/image/spade1.png" alt="spade1"></div>
+        <div class="cardBox">
+          <img src="./static/image/diamond1.png" alt="diamond1">
+          <img src="./static/image/reverse.png" alt="1" class="reverse">
+        </div>
+        <div class="cardBox">
+          <img src="./static/image/spade1.png" alt="spade1">
+          <img src="./static/image/reverse.png" alt="3" class="reverse">
+        </div>
+        <div class="cardBox">
+          <img src="./static/image/diamond1.png" alt="diamond1">
+          <img src="./static/image/reverse.png" alt="5" class="reverse">
+        </div>
+        <div class="cardBox">
+          <img src="./static/image/spade1.png" alt="spade1">
+          <img src="./static/image/reverse.png" alt="7" class="reverse">
+        </div>
       </div>
     </div>
 
     <div id="menu">
-      <div id="timer">adsf</div>
+      <div id="timer"></div>
       <button id="startB"> start!</button>
+      <!-- 버튼 또는 div 추가해서 게임방법 설명 추가
+           새창에서 띄우는 a링크(새창), 모달창을 띄우는(현재창) 추가 -->
     </div>
-
+    
   </div>
 
   

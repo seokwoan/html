@@ -97,7 +97,7 @@ function userSelect(){
     // 다시 컴푸터 가위바위보 이미지 변경 되게( setInterval)
 
     $(".userImg").eq(idx).css( 'border' , '' );
-    // $(this)/removeAttr('style'); -> jquery로 추가한 모든 스타일이 제거됨
+    // $(this).removeAttr('style'); -> jquery로 추가한 모든 스타일이 제거됨
     // 내가 클릭한 가위바위보 이미지 표시 해제
     $(".result").remove();
 
