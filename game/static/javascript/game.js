@@ -15,6 +15,12 @@ window.onload=function(){
 function start(){
   var event = document.getElementsByClassName("reverse");
   // img.reverse에 클릭이벤트 추가 
+
+  /* 새로운배열을 하나 만들고
+  클릭한 카드의 배열인덱스를 가져오고
+  가져온 배열인덱스를 새로운배열에 넣어 2개의 인덱스 값을 비교
+  2번 누르면 실행이아니고 누를때마다 배열의 값을 확인하고 
+  다르면 false 같으면 true return을 통해 확인 */
   for( var i = 0 ; i < event.length ; i++ ){
     event[i].addEventListener( 'click' , reverse);
   }
@@ -56,6 +62,10 @@ function reverse(){
   if( selection == 2 ){
     console.log(selNumF, selNumS);
     if( selOne == selTwo ){
+      // 두개가 같을때도 timeout을 이용해 보여주고 사라지게 하기
+      // same함수를 만들어서 클래스 변경, event off 
+      // hide, show가 아니라 클래스명을 바꿔주는 작업을 통해 디스플레이 조절을 해야
+      // 카드의 위치가 변경되지 않음
       $(".cardBox").eq(Math.floor(selNumF / 2)).hide();
       $(".cardBox").eq(Math.floor(selNumS / 2)).hide();
       // 두개 div가 display none으로 변경해 남은 카드의 위치가 변경됨
@@ -76,6 +86,8 @@ function reverse(){
     selNumS = -1;
   }
 }
+
+// function same(){}
 
 function reset( selNumF, selNumS ){
   console.log( selNumF, selNumS );
