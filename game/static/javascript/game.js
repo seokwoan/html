@@ -31,7 +31,8 @@ function start(){
 
 // reverse click event
 function reverse(){
-  $(this).hide();
+  $(this).removeAttr('class');
+  $(this).attr( 'class' , 'open' );
   selection++;
 
   if( selNumF == -1 ){
@@ -66,8 +67,10 @@ function reverse(){
       // same함수를 만들어서 클래스 변경, event off 
       // hide, show가 아니라 클래스명을 바꿔주는 작업을 통해 디스플레이 조절을 해야
       // 카드의 위치가 변경되지 않음
-      $(".cardBox").eq(Math.floor(selNumF / 2)).hide();
-      $(".cardBox").eq(Math.floor(selNumS / 2)).hide();
+      same( selNumF, selNumS );
+      console.log( selNumF, selNumS );
+      // $(".cardBox").eq(Math.floor(selNumF / 2)).hide();
+      // $(".cardBox").eq(Math.floor(selNumS / 2)).hide();
       // 두개 div가 display none으로 변경해 남은 카드의 위치가 변경됨
       /* .reverse의 css에서 이미지를 #cardBox와 같게
       z-index를 2로
@@ -87,7 +90,15 @@ function reverse(){
   }
 }
 
-// function same(){}
+function same( selNumF, selNumS ){
+  setTimeout( function(){
+    console.log( selNumF, selNumS );
+    $('img').eq(selNumF).removeAttr('class');
+    $('img').eq(selNumS).removeAttr('class');
+    $('img').eq(selNumF).attr( 'class' , 'reverse');
+    $('img').eq(selNumS).attr( 'class' , 'reverse');
+  }, 200);
+}
 
 function reset( selNumF, selNumS ){
   console.log( selNumF, selNumS );
