@@ -59,7 +59,8 @@ function reverse(){
       $(".cardBox").eq(Math.floor(selNumF / 2)).hide();
       $(".cardBox").eq(Math.floor(selNumS / 2)).hide();
       // 두개 div가 display none으로 변경해 남은 카드의 위치가 변경됨
-      /* .reverse의 css에서 배경을 blue, z-index를 2로 돌려주는 방식으로 변경필요
+      /* .reverse의 css에서 이미지를 #cardBox와 같게
+      z-index를 2로
       .reverse의 클릭 함수 제거 */
       // 두개 사라지면 맞춤변수(전역)++
       // 변수의 값이 img.length/2와 같아지면 end함수 실햄
