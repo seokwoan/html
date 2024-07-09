@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <link rel="stylesheet" href="./static/css/20240709보충.css">
+
+  <style>
+    #selectMenu{
+      position : relative;
+      top : -200px;
+      left : 250px;
+      width : 200px;
+      height : 200px;
+      border : 2px solid #aaa;
+      border-radius : 7px;
+      font-size : 30px;
+      text-align : center;
+      line-height : 200px;
+    }
+
+  </style>
+
+  <script src="./static/javascript/20240709보충.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+
+</head>
+
+
+
+<body>
+  
+  <div id="box1" class="b">나 div</div>
+  <p class="a">나 p</p>
+  <span class="a">나 span</span>
+  <b id="text1">나 b</b>
+
+  <div id="lunch">
+    <h3>점심 메뉴를 고르세요</h3>
+    <ol>
+      <li class="menu">짬뽕</li>
+      <li class="menu">곰탕</li>
+      <li class="menu">콩나물국밥</li>
+      <li class="menu">돈까스</li>
+      <li class="menu">쭈꾸미철판볶음</li>
+      <li class="menu">잔치국수</li>
+    </ol>
+  </div>
+
+  <div id="selectMenu"></div>
+
+  <script>
+
+    // span태그를 클릭하면 id가 box1인 태그안에 h2태그를 만들고 h2태그안에 비야 그만와! 출력
+
+
+    // event를 추가할때는 .on( 'event동작' , function(){ }) / ( 'click' , 함수명(함수 이름만 작성 호출x) )
+    $(".a").eq(0).on( 'click' , event1 );
+    // 자바스크립트에서 함수는 이름있는 함수와 이름없는 익명함수가 있다.
+
+    function event1(){
+      // 클릭하면 무엇을 할것인가?
+      // p태그를 클릭해서 b태그 밑에 div태그를 만들고 div태그 안에 로또 1등되면 좋겠다
+      // 라고 출력한다
+      $("body").append( "<div>로또 1등되면 좋겠다!</div>" );
+
+    }
+
+
+    $(".a").eq(1).on( 'click' , function(){
+      $("#box1").append( "<h2>비야 그만와</h2>" );
+      $(this).hide();  // hide는 태크에 display:none; 처리
+      // .show()는 태그의 display를 원래값을 돌려놓기
+    });
+
+    // id가 box1인 태그를 클릭하면 span태그를 보이게 하고 box1태그 안에 비우기
+
+    $("#box1").on( 'click' , function(){
+      $(".a").eq(1).show();
+      $(this).find( "h2" ).remove();
+      // empty(); -> 해당 태그안의 내용을 제거
+      // remove(); -> 해당 태그를 제거
+    });
+
+
+    // id가 text1인 태그를 클릭하면 해당 태그안에 있는 글자 색을 빨강으로 변경
+    $("#text1").on( 'click' , function(){
+      $(this).css( "color" , "red" );
+    });
+
+    // jquery는 class를 선택하고 index를 넣지 않으면 전부에 적용됨 
+    $(".menu").on( 'click' , selectMenu );
+
+    function selectMenu(){
+      var menu = $(this).text();
+      $("#selectMenu").append( menu );
+    }
+
+//  document.getElementsByClassName("a")[1].addEventListener( 'click' , event2 );
+
+    // function event2(){
+    //   $("#box1").append( "<h2>비야 그만와!</h2>" );
+//    document.getElementById("box1").append( " <h2>비야 그만와!</h2> ")      
+    // }
+
+    // document.getElementsByClassName("a")[0].addEventListener( 'click' , function(){
+    //         // class, name, tag는 다중이라 배열 index표현해야함 값이 하나여도 배열이라 index표현
+    //         // 이벤트를 줄 태그의 경우 개발자의 편의를 위해 id를 부여하기도 한다
+    //   alert( "p태그 맞아!" );        
+    // });
+
+    // $(".a").eq(0).click(function(){ alert("p태그야"); });
+    // // $("input[name=b]") name으로 선택하는법 input에서 사용
+
+  </script>
+
+</body>
+
+
+
+
+
+</html>
+
+
+
+<!--
+  브라우저에서 event란
+  브라우저에서 사용자에의해 행해지는 모든 행위 
+    -> 최소화, 크기변경, 마우스 클릭, 마우스휠, 키보드입력, 닫기 등등 전부
+  
+  브라우저에서 발생하는 event는 자바스크립트로 처리해야한다
+
+  이벤트를 누구에게 적용할것인가
+
+  Id - 단일
+  class, name, tag - 다중(배열)
+
+  document.getElementById().addEventListener()
+  document.getElementsByClassName().addEventListener()
+  document.getElementsByTagName().addEventListener()
+  document.getElementsByName().addEventListener()
+
+
+-->
