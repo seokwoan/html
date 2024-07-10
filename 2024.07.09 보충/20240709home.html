@@ -25,16 +25,6 @@
 
     #slideImg{
       list-style-type : none;
-      width : 700px;
-      height : 400px;
-      padding : 0;
-      margin : 0;
-      background : url(./static/image/고양이1.jpg) no-repeat center;
-      background-size : cover;
-    }
-
-    /* #slideImg{
-      list-style-type : none;
       width : 2800px;
       position : relative;
       display : flex;
@@ -70,18 +60,18 @@
       height : 400px;
       background : url(./static/image/고양이4.jpg) no-repeat center;
       background-size : cover;
-    } */
+    }
 
   </style>
 
   <div id="slide">
-    <div id="slideImg"></div>
-    <!-- <ul id="slideImg">
+    <!-- <div id="slideImg"></div> -->
+    <ul id="slideImg">
       <li></li>
       <li></li>
       <li></li>
       <li></li>
-    </ul> -->
+    </ul>
   </div>
   <button id="left">왼쪽</button><button id="right">오른쪽</button>
 
@@ -96,43 +86,48 @@
 
 <script>
 
-// let pos = 0;
+let pos = 0;
 
-// $("#left").on( 'click' , function(){
-//   pos += 700;
-//   if( pos == 2800 ) pos = 0;
-//   $("#slideImg").css( "right" , pos + "px" );
-// });
-
-
-// $("#right").on( 'click' , function(){
-//   pos -= 700;
-//   if( pos == -700 ) pos = 2100;
-//   $("#slideImg").css( "right" , pos + "px" );
-// });
-
-// 다른 방식으로 슬라이드 만들기
-
-var img = [ "고양이1.jpg" , "고양이2.jpg" , "고양이3.jpg" , "고양이4.jpg" ];
-
-var img_number = 0;
+$("#left").on( 'click' , function(){
+  pos += 700;
+  if( pos == 2800 ) pos = 0;
+  $("#slideImg").css( "right" , pos + "px" );
+});
 
 
 $("#right").on( 'click' , function(){
-  img_number++;
-  if( img_number == 4 ){
-    img_number = 0;
-  }
-  $("#slideImg").css( "background" , "url(./static/image/" + img[img_number] + ") no-repeat center" );
+  pos -= 700;
+  if( pos == -700 ) pos = 2100;
+  $("#slideImg").css( "right" , pos + "px" );
 });
 
-$("#left").on( 'click' , function(){
-  img_number--;
-  if( img_number == -1 ){
-    img_number = 3;
-  }
-  $("#slideImg").css( "background" , `url(./static/image/${img[img_number]}) no-repeat center` );
-});
+// 다른 방식으로 슬라이드 만들기
+
+// var img = [ "고양이1.jpg" , "고양이2.jpg" , "고양이3.jpg" , "고양이4.jpg" ];
+
+// var img_number = 0;
+
+
+
+// $("#right").on( 'click' , function(){
+//   img_number++;
+//   if( img_number == 4 ){
+//     img_number = 0;
+//   }
+//   $("#slideImg").css( "background" , "url(./static/image/" + img[img_number] + ") no-repeat center" );
+//   $("#slideImg").css( "background-size" , "cover" );
+// });
+
+// $("#left").on( 'click' , function(){
+//   img_number--;
+//   if( img_number == -1 ){
+//     img_number = 3;
+//   }
+//   $("#slideImg").css( "background" , "url(./static/image/" + img[img_number] + ") no-repeat center" );
+//   $("#slideImg").css( "background-size" , "cover" );
+// });
+
+
 
 
 </script>
