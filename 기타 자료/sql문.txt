@@ -1,0 +1,63 @@
+-- DML - select(조회), insert(삽입), update(변경), delete(삭제)
+-- 
+-- DDL - create, alter, drop(삭제 - 데이터베이스, 테이블),
+-- 
+-- DCL - grant(권한 지정), revoke(권한 복구)
+
+
+
+
+-- create table test1(
+	-- 	test1_id int auto_increment primary key,
+	/*column중에는 고유값( 다른테이터값(field값)과 중복되지 않는 값 )을 갖는 column이 있어야한다.
+	고유값을 갖는 column을 기본키라고 한다. 기본키는 무결성( 중복되지 않는 field값을 가져야한다 )이 기본원칙
+	 auto_increment(숫자 자동으로 증가) primary key -> 중복이 없는 column이 기본키여야 하므로
+	자동으로 증가하는 값을 사용한 column을 기본키로 사용하기 위해 primary key로 지정하기 위함 */ 
+	-- 	name varchar(255),
+	-- 	age int(3) 
+	/* colum명 데이터타입 
+	varchar(x) -> db에서 문자열을 의미 x는 문자열의 크기 x-1의 크기까지가능 column값의 index[0]은 null값
+	varchar는 문자열의 크기를 반드시 입력해야함 */
+	--	int(x) -> 자리수를 표시 입력하지 않으면 20억까지 
+-- );
+
+
+--	데이터 저장
+--	insert into 테이블명(column명들) values(데이터들);
+-- insert into test1( name, age ) values( '장영실' , 45 );
+
+--	데이터 조회
+--	select column명 from 테이블명 where(조건식) -> 조건식이 있으면 조건식에 맞는 데이터만 가져옴 where없으면 전부 
+-- select * from test1;
+
+--	데이터 수정
+--	update 테이블명 set 변경사항 whrer 조건식;
+-- update test1 set age = 50 where name = '이순신';
+
+
+--	데이터 삭제
+-- delete from 테이블명 where 조건식;
+-- delete from test1 where age >= 45; 
+
+
+-- create table test_member(
+-- 	member_id int auto_increment primary key,
+-- 	name varchar(50),
+-- 	kor int(3),
+-- 	eng int(3),
+-- 	mat int(3),
+-- 	total int(3),
+-- 	std_avg int(3)
+-- );
+
+-- select Count(*) as cnt from test_member;
+-- Count -> column의 수를 알려주는 함수 
+-- Count를 통해 column의 수가 나오면 임시column이름을 가짐 -> as를 통해 이름을 바꿔줌
+
+
+-- create table member(
+-- 	member_id int auto_increment primary key,
+-- 	user_id varchar(50) not null , user_password varchar(50) not null ,
+-- 	user_email varchar(100) not null , user_name varchar(20) not null 
+-- 	-- not null을 입력하면 해당 컬럼은 반드시 데이터를 가져야한다. 데이터가 없으면 오류
+-- );
